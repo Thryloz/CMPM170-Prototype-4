@@ -1,30 +1,30 @@
 {
     "version": 1,
-    "name": "InputSystem_Actions",
+    "name": "PlayerControls",
     "maps": [
         {
             "name": "Player",
             "id": "df70fa95-8a34-4494-b137-73ab6b9c7d37",
             "actions": [
                 {
-                    "name": "Move",
-                    "type": "Button",
-                    "id": "fff29d7d-94e4-4515-bd37-8515aa8dae66",
-                    "expectedControlType": "",
+                    "name": "MouseZoom",
+                    "type": "Value",
+                    "id": "6cc954dc-2bf3-448f-9d22-32a70fdfc9ec",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
                 {
                     "name": "",
-                    "id": "318d9534-89f3-48e9-8d17-9da13bc29c6e",
-                    "path": "<Keyboard>/w",
+                    "id": "e71d8627-7033-46d9-a9e2-aa1e2b3bf257",
+                    "path": "<Mouse>/scroll",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Move",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "MouseZoom",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
