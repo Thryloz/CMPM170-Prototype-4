@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TornadoMaterial
+  m_Name: TornadoOuterWhite
   m_Shader: {fileID: -6465566751694194690, guid: 8a9f49c19eebd3d44a02824424130082, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -51,16 +51,20 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Dissolve: 0.163
+    - _Dissolve: 0.144
     - _NoisePower: 1
-    - _NoiseScale: 32.86
-    - _NoiseSpeed: -0.8
+    - _NoiseScale: 60
+    - _NoiseSpeed: -0.91
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _TwirlSpeed: 0.5
-    - _TwirlStrength: 2
+    - _TwirlSpeed: -0.5
+    - _TwirlStrength: 1
+    - _Value: 0.5
+    - _WobbleFrequency: 2
+    - _WobbleIntensity: 4
+    - _WobbleSpeed: 3
     m_Colors:
-    - _Color: {r: 0.87169814, g: 0.87169814, b: 0.87169814, a: 1}
-    - _TwirlCenter: {r: 0.5, g: 1, b: 0, a: 0}
+    - _Color: {r: 29.508846, g: 29.508846, b: 29.508846, a: 1}
+    - _TwirlCenter: {r: 7, g: 10, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
