@@ -3,9 +3,10 @@ using UnityEngine.InputSystem;
 
 public class TempestController : MonoBehaviour
 {
-    [SerializeField] private float maxSpeed = 5f;
-    [SerializeField] private float acceleration = 2f;
+    [Header("References")]
     [SerializeField] private Camera cam;
+    [SerializeField] private TempestMain tempestMain;
+
 
     [Header("Debug")]
     [SerializeField] private Vector3 velocity;
@@ -27,7 +28,10 @@ public class TempestController : MonoBehaviour
     {
         controls = new PlayerControls();
         rb = GetComponent<Rigidbody>();
-
+        if (tempestMain == null)
+        {
+            tempestMain = GetComponent<TempestMain>();
+        }
     }
 
     private void OnEnable()
@@ -57,13 +61,13 @@ public class TempestController : MonoBehaviour
 
         forceDirection = forward.normalized * move.ReadValue<Vector2>().y + right.normalized * move.ReadValue<Vector2>().x;
 
-        rb.AddForce(forceDirection * acceleration, ForceMode.VelocityChange);
+        rb.AddForce(forceDirection * tempestMain.acceleration, ForceMode.VelocityChange);
         forceDirection = Vector3.zero;
 
         horizontalVelocity = rb.linearVelocity;
-        if (horizontalVelocity.sqrMagnitude > maxSpeed * maxSpeed)
+        if (horizontalVelocity.sqrMagnitude > tempestMain.maxSpeed * tempestMain.maxSpeed)
         {
-            rb.linearVelocity = horizontalVelocity.normalized * maxSpeed; 
+            rb.linearVelocity = horizontalVelocity.normalized * tempestMain.maxSpeed; 
         }
 
         velocity = rb.linearVelocity;
