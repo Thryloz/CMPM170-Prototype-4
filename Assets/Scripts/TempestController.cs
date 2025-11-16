@@ -6,7 +6,12 @@ public class TempestController : MonoBehaviour
     [Header("References")]
     [SerializeField] private Camera cam;
     [SerializeField] private TempestMain tempestMain;
+    [SerializeField] private GameObject projectilePrefab;
 
+    [Header("Suck & Throw Fields")]
+    public bool isSucking = false;
+    public float suckSpeed = 5;
+    public GameObject projectile;
 
     [Header("Debug")]
     [SerializeField] private Vector3 velocity;
@@ -14,18 +19,20 @@ public class TempestController : MonoBehaviour
 
     private PlayerControls controls;
     private InputAction move;
-
+    private InputAction suck;
 
     private Rigidbody rb;
-
 
     private Vector3 forceDirection = Vector3.zero;
     private Vector3 forward = Vector3.zero;
     private Vector3 right = Vector3.zero;
     private Vector3 horizontalVelocity = Vector3.zero;
 
+
     private void Awake()
     {
+        GameManager.Instance.player = gameObject;
+
         controls = new PlayerControls();
         rb = GetComponent<Rigidbody>();
         if (tempestMain == null)
@@ -34,12 +41,15 @@ public class TempestController : MonoBehaviour
         }
     }
 
+
     private void OnEnable()
     {
         move = controls.Player.Move;
+        suck = controls.Player.Suck;
 
         controls.Player.Enable();
     }
+
 
     private void OnDisable()
     {
@@ -51,8 +61,11 @@ public class TempestController : MonoBehaviour
     {
     }
 
+
     private void FixedUpdate()
     {
+        isSucking = suck.ReadValue<float>() != 0;
+
         forward = cam.transform.forward;
         forward.y = 0f;
 
@@ -74,4 +87,11 @@ public class TempestController : MonoBehaviour
         velocityMagnitude = rb.linearVelocity.magnitude;
     }
 
+    public void CreateProjectile()
+    {
+        projectile = Instantiate(projectilePrefab);
+        projectile.transform.parent = transform.Find("OrbitTarget");
+        projectile.transform.localPosition = Vector3.zero;
+        projectile.transform.localScale = Vector3.one;
+    }
 }
