@@ -92,6 +92,7 @@ public class TempestController : MonoBehaviour
         projectile = Instantiate(projectilePrefab);
         projectile.transform.parent = transform.Find("OrbitTarget");
         projectile.transform.localPosition = Vector3.zero;
+        projectile.transform.localRotation = transform.Find("OrbitTarget").transform.rotation;
         projectile.transform.localScale = Vector3.one;
     }
 }
