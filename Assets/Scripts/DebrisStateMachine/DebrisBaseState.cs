@@ -11,7 +11,8 @@ public abstract class DebrisBaseState
     public virtual void OnTriggerStay(DebrisStateManager debris, Collider other){}
     public virtual void OnTriggerExit(DebrisStateManager debris, Collider other)
     {
-        debris.SwitchState(debris.idleState);
+        if (debris.currentState != debris.projectileState)
+            debris.SwitchState(debris.idleState);
     }
 
 }

@@ -17,7 +17,7 @@ public class DebrisOrbitingState : DebrisBaseState
     {
         if (!debris.player.isSucking)
         {
-            Debug.Log("[DEBRIS] orbit state should end");
+            debris.SwitchState(debris.projectileState);
         }
     }
 
