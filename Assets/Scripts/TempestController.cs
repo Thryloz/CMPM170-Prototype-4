@@ -7,6 +7,8 @@ public class TempestController : MonoBehaviour
     [SerializeField] private Camera cam;
     [SerializeField] private TempestMain tempestMain;
     [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private ThirdPersonCameraController cameraController;
+
 
     [Header("Suck & Throw Fields")]
     public bool isSucking = false;
@@ -28,7 +30,7 @@ public class TempestController : MonoBehaviour
     private Vector3 right = Vector3.zero;
     private Vector3 horizontalVelocity = Vector3.zero;
 
-
+    private float minZoomDistance;
     private void Awake()
     {
         GameManager.Instance.player = gameObject;
@@ -59,6 +61,14 @@ public class TempestController : MonoBehaviour
 
     private void Update()
     {
+        if (tempestMain.size <= tempestMain.level3Threshold)
+        {
+            cameraController.minDistance = TempestMain.Remap(tempestMain.size, tempestMain.level1Threshold, tempestMain.level3Threshold, 15f, 50f);
+        }
+        else
+        {
+            cameraController.minDistance = TempestMain.Remap(tempestMain.size, tempestMain.level3Threshold, tempestMain.maxSize, 50f, 100f);
+        }
     }
 
 

@@ -425,8 +425,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ThirdPersonCameraController
   zoomSpeed: 2
   zoomLerpSpeed: 10
-  minDistance: 5
+  minDistance: 15
   maxDistance: 30
+  currentZoom: 0
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1290,6 +1291,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6915800434355358500, guid: 1d769c6525a163642953552ab823da0b, type: 3}
+      propertyPath: cameraController
+      value: 
+      objectReference: {fileID: 319165062}
     - target: {fileID: 7016440577121544130, guid: 1d769c6525a163642953552ab823da0b, type: 3}
       propertyPath: m_Name
       value: Player_Tempest
@@ -1302,6 +1307,10 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 330585545}
+    - target: {fileID: 8964151998207303255, guid: 1d769c6525a163642953552ab823da0b, type: 3}
+      propertyPath: cameraController
+      value: 
+      objectReference: {fileID: 319165062}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

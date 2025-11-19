@@ -21,12 +21,16 @@ public class TempestMain : MonoBehaviour
     [SerializeField] private ParticleSystem tempestCoreLevel2;
     [SerializeField] private ParticleSystem tempestOuterWhiteLevel2;
     [SerializeField] private ParticleSystem tempestOuterBlackLevel2;
-    private Material level2CoreMaterial;
-    private Material level2OuterMaterialWhite;
-    private Material level2OuterMaterialBlack;
-    
+
     [Header("LEVEL 3")]
     public float level3Threshold = 25.0f;
+    [SerializeField] private GameObject level3Root;
+    [SerializeField] private ParticleSystem tempestCoreLevel3;
+    [SerializeField] private ParticleSystem tempestOuterWhiteLevel3;
+    [SerializeField] private ParticleSystem tempestOuterBlackLevel3;
+
+    public float maxSize = 50f;
+
     
     [Header("Movement (should be influenced by size)")]
     public float maxSpeed;
@@ -40,13 +44,13 @@ public class TempestMain : MonoBehaviour
         level1CoreMaterial = tempestCoreLevel1.GetComponent<ParticleSystemRenderer>().material;
         level1OuterMaterial = tempestOuterLevel1.GetComponent<ParticleSystemRenderer>().material;
 
-        level2CoreMaterial = tempestCoreLevel2.GetComponent<ParticleSystemRenderer>().material;
-        level2OuterMaterialWhite = tempestOuterWhiteLevel2.GetComponent<ParticleSystemRenderer>().material;
-        level2OuterMaterialBlack = tempestOuterBlackLevel2.GetComponent<ParticleSystemRenderer>().material;
+        //level2CoreMaterial = tempestCoreLevel2.GetComponent<ParticleSystemRenderer>().material;
+        //level2OuterMaterialWhite = tempestOuterWhiteLevel2.GetComponent<ParticleSystemRenderer>().material;
+        //level2OuterMaterialBlack = tempestOuterBlackLevel2.GetComponent<ParticleSystemRenderer>().material;
 
         level1Root.SetActive(true);
         level2Root.SetActive(false);
-        //level3Root.SetActive(false);
+        level3Root.SetActive(false);
     }
 
     private void Update()
@@ -56,15 +60,16 @@ public class TempestMain : MonoBehaviour
         {
             level1Root.SetActive(true);
             level2Root.SetActive(false);
+            level3Root.SetActive(false);
 
             // remaps the tempestSize (1, thresholds) to scale (0.5 to 1) for scaling
-            float coreValue = Remap(size, 1f, level2Threshold, 0.5f, 1f);
+            float coreValue = Remap(size, level1Threshold, level2Threshold, 0.5f, 1f);
 
             tempestCoreLevel1.transform.localScale = new Vector3(coreValue, coreValue, coreValue);
             tempestOuterLevel1.transform.localScale = new Vector3(coreValue * 1.2f, coreValue, coreValue * 1.2f);
 
-            float intensity = Remap(size, 1f, level2Threshold, 0.5f, 4f);
-            float speed = Remap(size, 1f, level2Threshold, -.5f, -.8f);
+            float intensity = Remap(size, level1Threshold, level2Threshold, 0.5f, 4f);
+            float speed = Remap(size, level1Threshold, level2Threshold, -.5f, -.8f);
             level1CoreMaterial.SetFloat("_NoiseSpeed", speed);
             level1CoreMaterial.SetFloat("_WobbleIntensity", intensity);
             level1CoreMaterial.SetFloat("_WobbleSpeed", intensity * 3f/4f);
@@ -76,19 +81,36 @@ public class TempestMain : MonoBehaviour
             level1OuterMaterial.SetFloat("_WobbleFrequency", intensity / 2);
 
             // remaps the tempestSize (1, thresholds) to speed (40 to 30)
-            maxSpeed = Remap(size, 1f, level2Threshold, 40f, 30f);
-        }
+            maxSpeed = Remap(size, level1Threshold, level2Threshold, 40f, 30f);
 
-        if (size > level2Threshold && size <= level3Threshold)
+
+        }
+        else if (size > level2Threshold && size <= level3Threshold)
         {
             level1Root.SetActive(false);
             level2Root.SetActive(true);
+            level3Root.SetActive(false);
 
+            // remaps the tempestSize (threshold 2 to threshold 3) to scale (1f, 2f)
             float coreValue = Remap(size, level2Threshold, level3Threshold, 1f, 2f);
 
             tempestCoreLevel2.transform.localScale = new Vector3(coreValue, 1f, coreValue);
             tempestOuterWhiteLevel2.transform.localScale = new Vector3(coreValue * 1.2f, 1f, coreValue * 1.2f);
             tempestOuterBlackLevel2.transform.localScale = new Vector3(coreValue * 1.2f, 1f, coreValue * 1.2f);
+
+        }
+        else if (size > level3Threshold)
+        {
+            level1Root.SetActive(false);
+            level2Root.SetActive(false);
+            level3Root.SetActive(true);
+
+            // remaps the tempestSize (threshold 3 to maxSize) to scale (2f, 5f)
+            float coreValue = Remap(size, level3Threshold, maxSize, 2f, 5f);
+            float y_value = Remap(size, level3Threshold, maxSize, 1f, 5f);
+
+            tempestCoreLevel3.transform.localScale = new Vector3(coreValue, y_value, coreValue);
+            tempestOuterWhiteLevel3.transform.localScale = tempestOuterBlackLevel3.transform.localScale = new Vector3(coreValue * 1.2f, y_value, coreValue * 1.2f);
         }
     }
 
