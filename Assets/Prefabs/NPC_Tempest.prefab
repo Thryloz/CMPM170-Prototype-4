@@ -24682,9 +24682,8 @@ GameObject:
   - component: {fileID: 2420458326629255297}
   - component: {fileID: 904771702182299186}
   - component: {fileID: 6915800434355358500}
-  - component: {fileID: 8964151998207303255}
   m_Layer: 0
-  m_Name: Player_Tempest
+  m_Name: NPC_Tempest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24783,26 +24782,6 @@ MonoBehaviour:
   maxSpeed: 50
   acceleration: 2
   VFXRoot: {fileID: 700894331897692338}
---- !u!114 &8964151998207303255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7016440577121544130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75a93e2dc9a46df4499522534234c4ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TempestController
-  cam: {fileID: 0}
-  tempestMain: {fileID: 6915800434355358500}
-  projectilePrefab: {fileID: 144920600073502044, guid: 2aeb74124d4375543bb82806bb5e099c, type: 3}
-  isSucking: 0
-  suckSpeed: 25
-  projectile: {fileID: 0}
-  velocity: {x: 0, y: 0, z: 0}
-  velocityMagnitude: 0
 --- !u!1001 &3331168868686945350
 PrefabInstance:
   m_ObjectHideFlags: 0
