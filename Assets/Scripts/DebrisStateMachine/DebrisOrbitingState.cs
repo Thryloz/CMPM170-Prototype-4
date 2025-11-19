@@ -9,7 +9,7 @@ public class DebrisOrbitingState : DebrisBaseState
 
         proj.transform.parent = target;
         proj.transform.localPosition = Vector3.zero;
-        proj.transform.localRotation = target.rotation;
+        proj.transform.rotation = target.rotation;
         proj.transform.localScale = Vector3.one;
     }
     

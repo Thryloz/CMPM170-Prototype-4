@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class DebrisStateManager : MonoBehaviour
 {
@@ -46,5 +47,11 @@ public class DebrisStateManager : MonoBehaviour
     public void DestroySelf()
     {
         Destroy(gameObject);
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position, transform.position + transform.forward*3);
     }
 }
