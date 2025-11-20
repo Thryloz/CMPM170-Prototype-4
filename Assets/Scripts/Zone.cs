@@ -34,20 +34,21 @@ public class Zone : MonoBehaviour
     {
         foreach (TempestMain main in tempestList)
         {
-            ApplyZoneEffect();
+            ApplyZoneEffect(main);
         }
     }
 
-    private void ApplyZoneEffect()
+    private void ApplyZoneEffect(TempestMain tempest)
     {
         switch (zoneType)
         {
             case Zones.Neutral:
                 break;
             case Zones.Warm:
-
+                tempest.ChangeSize(1f);
                 break;
             case Zones.Cold:
+                tempest.ChangeSize(-1f);
                 break;
             case Zones.Windy:
                 break;
