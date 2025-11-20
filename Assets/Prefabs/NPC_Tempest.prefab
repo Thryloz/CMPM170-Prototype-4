@@ -24620,7 +24620,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3411071971417627626
 Transform:
   m_ObjectHideFlags: 0
@@ -24644,7 +24644,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3002295959738152914}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 09cedc60258547e409239adc60996863, type: 3}
   m_Name: 
@@ -29753,8 +29753,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 5, y: 10, z: 5}
-  m_Center: {x: 0, y: 7, z: 0}
+  m_Size: {x: 20, y: 25, z: 20}
+  m_Center: {x: 0, y: 14.3, z: 0}
 --- !u!114 &6915800434355358500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44501,6 +44501,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2087895749214558974, guid: 2aeb74124d4375543bb82806bb5e099c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3841035776064032989, guid: 2aeb74124d4375543bb82806bb5e099c, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
