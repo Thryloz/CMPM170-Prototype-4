@@ -5,8 +5,7 @@ public class Spawner : MonoBehaviour
     public GameObject objectToSpawn;
     public float range;
 
-    public float minInterval = 1f;
-    public float maxInterval = 2f;
+    public int amount = 10;
 
 
     float timeSinceSpawn = 0f;
@@ -16,7 +15,10 @@ public class Spawner : MonoBehaviour
 
     void Start()
     {
-        newSpawnTime = Random.Range(minInterval, maxInterval);
+        for (int i = 0; i < amount; i++)
+        {
+            Instantiate(objectToSpawn, transform.position + new Vector3(Random.Range(0, range), 0, Random.Range(0, range)), Quaternion.identity);
+        }
     }
 
     void Update()
@@ -26,7 +28,7 @@ public class Spawner : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawSphere(transform.position, range);
+        Gizmos.DrawWireSphere(transform.position, range);
     }
 
 }

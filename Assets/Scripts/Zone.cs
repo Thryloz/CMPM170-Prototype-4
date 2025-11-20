@@ -16,9 +16,18 @@ public class Zone : MonoBehaviour
 
     public List<TempestMain> tempestList = new List<TempestMain>();
 
+    [SerializeField] private SphereCollider col;
+
     private void Start()
     {
-        
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, col.radius);
+        foreach (var hitCollider in hitColliders)
+        {
+            if (hitCollider.TryGetComponent<TempestMain>(out TempestMain tempest))
+            {
+                tempestList.Add(tempest);
+            }
+        }
     }
 
     private void Update()
