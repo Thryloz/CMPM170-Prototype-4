@@ -67,7 +67,7 @@ public class TempestController : MonoBehaviour
         }
         else
         {
-            cameraController.minDistance = TempestMain.Remap(tempestMain.size, tempestMain.level3Threshold, tempestMain.maxSize, 50f, 100f);
+            cameraController.minDistance = TempestMain.Remap(tempestMain.size, tempestMain.level3Threshold, tempestMain.maxSize, 50f, 200f);
         }
     }
 

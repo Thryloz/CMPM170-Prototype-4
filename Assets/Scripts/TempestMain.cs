@@ -28,6 +28,7 @@ public class TempestMain : MonoBehaviour
     [SerializeField] private ParticleSystem tempestCoreLevel3;
     [SerializeField] private ParticleSystem tempestOuterWhiteLevel3;
     [SerializeField] private ParticleSystem tempestOuterBlackLevel3;
+    [SerializeField] private ParticleSystem tempestOutermost;
 
     public float maxSize = 50f;
 
@@ -44,10 +45,6 @@ public class TempestMain : MonoBehaviour
     {
         level1CoreMaterial = tempestCoreLevel1.GetComponent<ParticleSystemRenderer>().material;
         level1OuterMaterial = tempestOuterLevel1.GetComponent<ParticleSystemRenderer>().material;
-
-        //level2CoreMaterial = tempestCoreLevel2.GetComponent<ParticleSystemRenderer>().material;
-        //level2OuterMaterialWhite = tempestOuterWhiteLevel2.GetComponent<ParticleSystemRenderer>().material;
-        //level2OuterMaterialBlack = tempestOuterBlackLevel2.GetComponent<ParticleSystemRenderer>().material;
 
         level1Root.SetActive(true);
         level2Root.SetActive(false);
@@ -106,12 +103,13 @@ public class TempestMain : MonoBehaviour
             level2Root.SetActive(false);
             level3Root.SetActive(true);
 
-            // remaps the tempestSize (threshold 3 to maxSize) to scale (2f, 5f)
+            // remaps the tempestSize (threshold 3 to maxSize) to x, z scale (2f, 5f)
             float coreValue = Remap(size, level3Threshold, maxSize, 2f, 5f);
-            float y_value = Remap(size, level3Threshold, maxSize, 1f, 5f);
+            float y_value = Remap(size, level3Threshold, maxSize, 1f, 3f);
 
             tempestCoreLevel3.transform.localScale = new Vector3(coreValue, y_value, coreValue);
             tempestOuterWhiteLevel3.transform.localScale = tempestOuterBlackLevel3.transform.localScale = new Vector3(coreValue * 1.2f, y_value, coreValue * 1.2f);
+            tempestOutermost.transform.localScale = new Vector3(coreValue * 2, y_value, coreValue * 2);
         }
     }
 
