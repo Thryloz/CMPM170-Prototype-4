@@ -38,6 +38,7 @@ public class TempestMain : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private GameObject VFXRoot;
+    [SerializeField] private AbsorbRange absorbRange;
 
     private void Start()
     {
@@ -118,6 +119,5 @@ public class TempestMain : MonoBehaviour
     {
         return (value - from1) / (to1 - from1) * (to2 - from2) + from2;
     }
-
 }
 
