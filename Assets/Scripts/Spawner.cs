@@ -8,9 +8,6 @@ public class Spawner : MonoBehaviour
     public int amount = 10;
 
 
-    float timeSinceSpawn = 0f;
-    float newSpawnTime = 1.5f;
-
     
 
     void Start()

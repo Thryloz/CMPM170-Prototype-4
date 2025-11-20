@@ -29634,6 +29634,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AbsorbRange
   selfTempest: {fileID: 6915800434355358500}
   list: []
+  col: {fileID: 7207645592657077301}
 --- !u!1 &5013623596226522024
 GameObject:
   m_ObjectHideFlags: 0
@@ -29768,6 +29769,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TempestMain
   size: 5
+  colorList:
+  - {r: 0, g: 10.123098, b: 67.274704, a: 0}
+  - {r: 792.15094, g: 55.348064, b: 0, a: 0}
+  - {r: 0.6295171, g: 62.141354, b: 0, a: 0}
+  - {r: 35.727394, g: 0.9137475, b: 38.7429, a: 0}
+  - {r: 39.077602, g: 0, b: 75.95741, a: 0}
   coreColor: {r: 0, g: 10.039216, b: 191.74905, a: 0}
   level1Threshold: 1
   level1Root: {fileID: 371377524985428130}
