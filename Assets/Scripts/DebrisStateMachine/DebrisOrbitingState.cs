@@ -10,7 +10,7 @@ public class DebrisOrbitingState : DebrisBaseState
         proj.transform.parent = target;
         proj.transform.localPosition = Vector3.zero;
         proj.transform.rotation = target.rotation;
-        proj.transform.localScale = Vector3.one;
+        proj.transform.localScale = new Vector3(3,3,3);
     }
     
     public override void UpdateState(DebrisStateManager debris)
