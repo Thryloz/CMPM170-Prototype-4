@@ -29632,7 +29632,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82f435ddf5233f64789ad4856026ffaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AbsorbRange
-  selfTempest: {fileID: 0}
+  selfTempest: {fileID: 6915800434355358500}
   list: []
 --- !u!1 &5013623596226522024
 GameObject:
