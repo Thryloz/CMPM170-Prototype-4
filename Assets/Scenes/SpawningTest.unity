@@ -850,10 +850,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f3752141293418469e55c2985c09656, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Spawner
-  objectToSpawn: {fileID: 7016440577121544130, guid: f3dd97d0870f0f24187d4a90b104a23b, type: 3}
+  objectToSpawn: {fileID: 7016440577121544130, guid: 4f5da5fcfc06a6b40bfeddb9d669d166, type: 3}
   range: 500
-  minInterval: 1
-  maxInterval: 2
+  amount: 10
 --- !u!4 &1824757422
 Transform:
   m_ObjectHideFlags: 0
