@@ -29787,7 +29787,7 @@ MonoBehaviour:
   maxSpeed: 50
   acceleration: 2
   VFXRoot: {fileID: 700894331897692338}
-  absorbRange: {fileID: 0}
+  absorbRange: {fileID: 4278901719810017785}
 --- !u!114 &8964151998207303255
 MonoBehaviour:
   m_ObjectHideFlags: 0

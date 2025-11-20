@@ -3,9 +3,10 @@ using System.Collections.Generic;
 
 public class AbsorbRange : MonoBehaviour
 {
-    private SphereCollider sc;
-    [SerializeField] private List<GameObject> list = new List<GameObject>();
+    [SerializeField] private TempestMain selfTempest;
+    [SerializeField] private List<TempestMain> list = new List<TempestMain>();
 
+    private SphereCollider sc;
     private void Awake()
     {
         sc = GetComponent<SphereCollider>();
@@ -19,14 +20,28 @@ public class AbsorbRange : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        CheckAbsorbList();
+    }
+
+    private void CheckAbsorbList()
+    {
+        foreach (TempestMain tempest in list)
+        {
+            if (tempest.size < selfTempest.size)
+            {
+                selfTempest.ChangeSize(tempest.size);
+                list.Remove(tempest);
+                tempest.GetAbsorbed();
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("NPC_Tempest"))
         {
-            list.Add(other.gameObject);
+            // should be try get component to be safe but ehhh
+            list.Add(other.gameObject.GetComponent<TempestMain>());
         }
     }
 
@@ -34,7 +49,7 @@ public class AbsorbRange : MonoBehaviour
     {
         if(other.CompareTag("NPC_Tempest"))
         {
-            list.Remove(other.gameObject);
+            list.Remove(other.gameObject.GetComponent<TempestMain>());
         }
     }
 }
