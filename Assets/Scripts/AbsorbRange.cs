@@ -6,6 +6,8 @@ public class AbsorbRange : MonoBehaviour
     [SerializeField] private TempestMain selfTempest;
     [SerializeField] private List<TempestMain> list = new List<TempestMain>();
 
+    [SerializeField] private SphereCollider col;
+
     private SphereCollider sc;
     private void Awake()
     {
@@ -21,11 +23,12 @@ public class AbsorbRange : MonoBehaviour
     void Update()
     {
         CheckAbsorbList();
+        col.radius = selfTempest.size * 2.5f;
     }
 
     private void CheckAbsorbList()
     {
-        foreach (TempestMain tempest in list)
+        foreach (TempestMain tempest in new List<TempestMain>(list))
         {
             if (tempest == null)
             {

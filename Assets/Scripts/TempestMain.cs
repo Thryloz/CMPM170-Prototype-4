@@ -1,9 +1,12 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class TempestMain : MonoBehaviour, IAbsorbable
 {
     [Header("Stats")]
     public float size;
+    [ColorUsage(true, true)]
+    public List<Color> colorList = new List<Color>();
     [ColorUsage(true, true)]
     public Color coreColor;
 
@@ -21,6 +24,7 @@ public class TempestMain : MonoBehaviour, IAbsorbable
     [SerializeField] private ParticleSystem tempestCoreLevel2;
     [SerializeField] private ParticleSystem tempestOuterWhiteLevel2;
     [SerializeField] private ParticleSystem tempestOuterBlackLevel2;
+    private Material level2CoreMaterial;
 
     [Header("LEVEL 3")]
     public float level3Threshold = 25.0f;
@@ -29,6 +33,7 @@ public class TempestMain : MonoBehaviour, IAbsorbable
     [SerializeField] private ParticleSystem tempestOuterWhiteLevel3;
     [SerializeField] private ParticleSystem tempestOuterBlackLevel3;
     [SerializeField] private ParticleSystem tempestOutermost;
+    private Material level3CoreMaterial;
 
     public float maxSize = 50f;
 
@@ -46,6 +51,9 @@ public class TempestMain : MonoBehaviour, IAbsorbable
         level1CoreMaterial = tempestCoreLevel1.GetComponent<ParticleSystemRenderer>().material;
         level1OuterMaterial = tempestOuterLevel1.GetComponent<ParticleSystemRenderer>().material;
 
+        level2CoreMaterial = tempestCoreLevel2.GetComponent<ParticleSystemRenderer>().material;
+        level3CoreMaterial = tempestCoreLevel3.GetComponent<ParticleSystemRenderer>().material;
+
         level1Root.SetActive(true);
         level2Root.SetActive(false);
         level3Root.SetActive(false);
@@ -53,7 +61,6 @@ public class TempestMain : MonoBehaviour, IAbsorbable
 
     private void Update()
     {
-        level1CoreMaterial.SetColor("_Color", coreColor);
         if (size <= level2Threshold)
         {
             level1Root.SetActive(true);
@@ -81,6 +88,7 @@ public class TempestMain : MonoBehaviour, IAbsorbable
             // remaps the tempestSize (1, thresholds) to speed (40 to 30)
             maxSpeed = Remap(size, level1Threshold, level2Threshold, 40f, 30f);
 
+            level1CoreMaterial.SetColor("_Color", coreColor);
 
         }
         else if (size > level2Threshold && size <= level3Threshold)
@@ -95,7 +103,9 @@ public class TempestMain : MonoBehaviour, IAbsorbable
             tempestCoreLevel2.transform.localScale = new Vector3(coreValue, 1f, coreValue);
             tempestOuterWhiteLevel2.transform.localScale = new Vector3(coreValue * 1.2f, 1f, coreValue * 1.2f);
             tempestOuterBlackLevel2.transform.localScale = new Vector3(coreValue * 1.2f, 1f, coreValue * 1.2f);
+            level2CoreMaterial.SetColor("_Color", coreColor);
 
+            level2CoreMaterial.SetColor("_Color", coreColor);
         }
         else if (size > level3Threshold)
         {
@@ -110,6 +120,8 @@ public class TempestMain : MonoBehaviour, IAbsorbable
             tempestCoreLevel3.transform.localScale = new Vector3(coreValue, y_value, coreValue);
             tempestOuterWhiteLevel3.transform.localScale = tempestOuterBlackLevel3.transform.localScale = new Vector3(coreValue * 1.2f, y_value, coreValue * 1.2f);
             tempestOutermost.transform.localScale = new Vector3(coreValue * 2, y_value, coreValue * 2);
+
+            level3CoreMaterial.SetColor("_Color", coreColor);
         }
     }
 
