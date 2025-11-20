@@ -612,6 +612,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3411071971417627626, guid: 1d769c6525a163642953552ab823da0b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.73
+      objectReference: {fileID: 0}
     - target: {fileID: 4836281125039901091, guid: 1d769c6525a163642953552ab823da0b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -672,6 +676,10 @@ PrefabInstance:
       propertyPath: projectile
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8964151998207303255, guid: 1d769c6525a163642953552ab823da0b, type: 3}
+      propertyPath: cameraController
+      value: 
+      objectReference: {fileID: 1397561444}
     - target: {fileID: 8964151998207303255, guid: 1d769c6525a163642953552ab823da0b, type: 3}
       propertyPath: projectilePrefab
       value: 
