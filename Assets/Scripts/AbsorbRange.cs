@@ -27,7 +27,11 @@ public class AbsorbRange : MonoBehaviour
     {
         foreach (TempestMain tempest in list)
         {
-            if (tempest.size < selfTempest.size)
+            if (tempest == null)
+            {
+                list.Remove(tempest);
+            }
+            else if (tempest.size < selfTempest.size) 
             {
                 selfTempest.ChangeSize(tempest.size);
                 list.Remove(tempest);
