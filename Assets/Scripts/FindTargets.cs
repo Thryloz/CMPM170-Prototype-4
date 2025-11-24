@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 /*
@@ -24,6 +25,7 @@ public class FindTargets : MonoBehaviour
     {
         sc = GetComponent<SphereCollider>();
         _self = transform.parent.gameObject;
+        // EventBus.Instance.OnNPCDeath += KillTarget;
     }
 
     // for testing purposes
@@ -60,10 +62,14 @@ public class FindTargets : MonoBehaviour
 
         float selfSize = _self.GetComponent<TempestMain>().size;
         GameObject smallest = _self;
-        foreach (GameObject target in targets)
+        foreach (GameObject target in targets.ToList())
         {
             if (target == null)
+            {
                 targets.Remove(target);
+                continue;
+            }
+                
 
             float targetSize = target.GetComponent<TempestMain>().size;
             if (targetSize >= selfSize)

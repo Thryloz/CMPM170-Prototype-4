@@ -6,7 +6,7 @@ public class NPC_Tempest : MonoBehaviour
 
     private void Start()
     {
-        tempest.size = Random.Range(tempest.level1Threshold, tempest.maxSize);
+        // tempest.size = Random.Range(tempest.level1Threshold, tempest.maxSize);
         tempest.coreColor = tempest.colorList[Random.Range(0, tempest.colorList.Count)];
     }
 }
