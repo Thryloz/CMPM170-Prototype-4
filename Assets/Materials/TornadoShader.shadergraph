@@ -1424,10 +1424,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 553.60009765625,
-            "y": -474.39990234375,
+            "x": 552.800048828125,
+            "y": -474.3999938964844,
             "width": 104.0,
-            "height": 33.599945068359378
+            "height": 33.600006103515628
         }
     },
     "m_Slots": [
@@ -1698,10 +1698,10 @@
     "m_Guid": {
         "m_GuidSerialized": "57376982-b952-43f6-8779-565af80b5cd4"
     },
-    "m_Name": "Value",
+    "m_Name": "WobbleValue",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Value",
-    "m_DefaultReferenceName": "_Value",
+    "m_RefNameGeneratedByDisplayName": "WobbleValue",
+    "m_DefaultReferenceName": "_WobbleValue",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
@@ -2086,10 +2086,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -192.80006408691407,
-            "y": -738.39990234375,
-            "width": 208.0,
-            "height": 311.99993896484377
+            "x": -176.0000762939453,
+            "y": -675.9999389648438,
+            "width": 206.40005493164063,
+            "height": 128.0
         }
     },
     "m_Slots": [
@@ -2101,7 +2101,7 @@
         "location"
     ],
     "m_Precision": 1,
-    "m_PreviewExpanded": true,
+    "m_PreviewExpanded": false,
     "m_DismissedVersion": 0,
     "m_PreviewMode": 2,
     "m_CustomColors": {
@@ -2644,10 +2644,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -1243.9998779296875,
-            "y": -786.39990234375,
-            "width": 207.9998779296875,
-            "height": 312.0
+            "x": -1152.0,
+            "y": -726.39990234375,
+            "width": 206.4000244140625,
+            "height": 128.0
         }
     },
     "m_Slots": [
@@ -2659,13 +2659,13 @@
         "location"
     ],
     "m_Precision": 1,
-    "m_PreviewExpanded": true,
+    "m_PreviewExpanded": false,
     "m_DismissedVersion": 0,
     "m_PreviewMode": 2,
     "m_CustomColors": {
         "m_SerializableColors": []
     },
-    "m_Space": 2,
+    "m_Space": 0,
     "m_PositionSource": 0
 }
 
@@ -2674,7 +2674,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "7a917dcdf2f84f46ac6ccfad43245f14",
     "m_Id": 0,
-    "m_DisplayName": "WobbleFrequency",
+    "m_DisplayName": "WobbleIntensity",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -3534,10 +3534,10 @@
     "m_Guid": {
         "m_GuidSerialized": "4f8932e0-777f-4768-8ad0-f70092e9f2d2"
     },
-    "m_Name": "WobbleIntensity",
+    "m_Name": "?",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "WobbleIntensity",
-    "m_DefaultReferenceName": "_WobbleIntensity",
+    "m_RefNameGeneratedByDisplayName": "?",
+    "m_DefaultReferenceName": "_",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
@@ -3813,10 +3813,10 @@
     "m_Guid": {
         "m_GuidSerialized": "01785a23-6a43-4486-b96f-b9a960c4e1ee"
     },
-    "m_Name": "WobbleFrequency",
+    "m_Name": "WobbleIntensity",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "WobbleFrequency",
-    "m_DefaultReferenceName": "_WobbleFrequency",
+    "m_RefNameGeneratedByDisplayName": "WobbleIntensity",
+    "m_DefaultReferenceName": "_WobbleIntensity",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
@@ -5159,7 +5159,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "f30f2598c4024e8098f3cf7191612cf3",
     "m_Id": 0,
-    "m_DisplayName": "WobbleIntensity",
+    "m_DisplayName": "?",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -5304,7 +5304,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "ff1bb4062ad8433295b5bcf34289f69b",
     "m_Id": 0,
-    "m_DisplayName": "Value",
+    "m_DisplayName": "WobbleValue",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",

@@ -14990,6 +14990,7 @@ MonoBehaviour:
   playerColor: {r: 0, g: 4.9000363, b: 46.306564, a: 0}
   absorbableEnemyColor: {r: 2.2453191, g: 38.619312, b: 0, a: 0}
   unabsorbableEnemyColor: {r: 18.377878, g: 1.2324399, b: 0, a: 0}
+  coreColor: {r: 18.377882, g: 0.19243856, b: 0, a: 0}
   level1Threshold: 1
   core: {fileID: 5676939686574075589}
   outerWhite: {fileID: 42140757838939748}
@@ -15015,6 +15016,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPC_Tempest
   tempest: {fileID: 6915800434355358500}
+  player: {fileID: 0}
 --- !u!1 &7022664601813824396
 GameObject:
   m_ObjectHideFlags: 0

@@ -51,6 +51,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _: 1
     - _Dissolve: 0.166
     - _NoisePower: 1
     - _NoiseScale: 20
@@ -60,9 +61,10 @@ Material:
     - _TwirlSpeed: 0.5
     - _TwirlStrength: 1
     - _Value: 0.5
-    - _WobbleFrequency: 2
-    - _WobbleIntensity: 4
+    - _WobbleFrequency: 1
+    - _WobbleIntensity: 1
     - _WobbleSpeed: 3
+    - _WobbleValue: 1
     m_Colors:
     - _Color: {r: 0, g: 8.783344, b: 67.79352, a: 1}
     - _TwirlCenter: {r: 5.8, g: 15, b: 0, a: 0}

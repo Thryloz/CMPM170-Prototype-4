@@ -5,14 +5,17 @@ public class TempestMain : MonoBehaviour, IAbsorbable, IStability
 {
     [Header("Stats")]
     public float size;
-    [field: SerializeField] public float Stability { get; set; }
+    [field: SerializeField, Range(0, 100)] public float Stability { get; set; }
 
+    [Header("Colors")]
     [ColorUsage(true, true)]
     public Color playerColor;
     [ColorUsage(true, true)]
     public Color absorbableEnemyColor;
     [ColorUsage(true, true)]
     public Color unabsorbableEnemyColor;
+    [ColorUsage(true, true)]
+    public Color coreColor;
 
     [Header("Level 1")]
     [SerializeField] public float level1Threshold = 1f;
@@ -45,9 +48,13 @@ public class TempestMain : MonoBehaviour, IAbsorbable, IStability
     [SerializeField] private AbsorbRange absorbRange;
 
 
-
     private void Start()
     {
+        if (TryGetComponent<TempestController>(out _))
+        {
+            coreColor = playerColor;
+        }
+
         coreMaterial = core.GetComponent<ParticleSystemRenderer>().material;
         outerWhiteMaterial = outerWhite.GetComponent<ParticleSystemRenderer>().material;
         outerMaterialBlack = outerBlack.GetComponent<ParticleSystemRenderer>().material;
@@ -61,6 +68,13 @@ public class TempestMain : MonoBehaviour, IAbsorbable, IStability
 
     private void Update()
     {
+        coreMaterial.SetColor("_Color", coreColor);
+        HandleSizeVisuals();
+        HandleStabilityVisuals();
+    }
+    
+    private void HandleSizeVisuals()
+    {
         if (size <= level2Threshold)
         {
             outerBlack.gameObject.SetActive(false);
@@ -72,22 +86,10 @@ public class TempestMain : MonoBehaviour, IAbsorbable, IStability
             core.transform.localScale = new Vector3(coreValue, coreValue, coreValue);
             outerWhite.transform.localScale = new Vector3(coreValue * 1.2f, coreValue, coreValue * 1.2f);
 
-            float intensity = Remap(size, level1Threshold, level2Threshold, 0.5f, 4f);
-            float speed = Remap(size, level1Threshold, level2Threshold, -.5f, -.8f);
-            coreMaterial.SetFloat("_NoiseSpeed", speed);
-            coreMaterial.SetFloat("_WobbleIntensity", intensity);
-            coreMaterial.SetFloat("_WobbleSpeed", intensity * 3f/4f);
-            coreMaterial.SetFloat("_WobbleFrequency", intensity/2);
-
-            outerWhiteMaterial.SetFloat("_NoiseSpeed", speed);
-            outerWhiteMaterial.SetFloat("_WobbleIntensity", intensity);
-            outerWhiteMaterial.SetFloat("_WobbleSpeed", intensity * 3f / 4f);
-            outerWhiteMaterial.SetFloat("_WobbleFrequency", intensity / 2);
 
             // remaps the tempestSize (1, thresholds) to speed (40 to 30)
             maxSpeed = Remap(size, level1Threshold, level2Threshold, 40f, 30f);
 
-            coreMaterial.SetColor("_Color", playerColor);
 
         }
         else if (size > level2Threshold && size <= level3Threshold)
@@ -99,9 +101,9 @@ public class TempestMain : MonoBehaviour, IAbsorbable, IStability
             // remaps the tempestSize (threshold 2 to threshold 3) to scale (1f, 2f)
             float coreValue = Remap(size, level2Threshold, level3Threshold, 1f, 2f);
 
+            core.transform.localScale = new Vector3(coreValue, 1f, coreValue);
             outerBlack.transform.localScale = new Vector3(coreValue, 1f, coreValue);
             outerWhite.transform.localScale = new Vector3(coreValue * 1.2f, 1f, coreValue * 1.2f);
-            outerBlack.transform.localScale = new Vector3(coreValue * 1.2f, 1f, coreValue * 1.2f);
 
         }
         else if (size > level3Threshold)
@@ -117,6 +119,24 @@ public class TempestMain : MonoBehaviour, IAbsorbable, IStability
             outerWhite.transform.localScale = outerBlack.transform.localScale = new Vector3(coreValue * 1.2f, y_value, coreValue * 1.2f);
             outermostWhite.transform.localScale = new Vector3(coreValue * 2, y_value, coreValue * 2);
         }
+    }
+
+    private void HandleStabilityVisuals()
+    {
+        float wobbleValue = Remap(Stability, 100f, 0f, 1f, 4f);
+        float wobbleSpeed = Remap(Stability, 100f, 0f, 3f, 5f);
+
+        coreMaterial.SetFloat("_WobbleValue", wobbleValue);
+        coreMaterial.SetFloat("_WobbleSpeed", wobbleSpeed);
+
+        outerWhiteMaterial.SetFloat("_WobbleValue", wobbleValue);
+        outerWhiteMaterial.SetFloat("_WobbleSpeed", wobbleSpeed);
+
+        outerMaterialBlack.SetFloat("_WobbleValue", wobbleValue);
+        outerMaterialBlack.SetFloat("_WobbleSpeed", wobbleSpeed);
+
+        outermostMaterialWhite.SetFloat("_WobbleValue", wobbleValue);
+        outermostMaterialWhite.SetFloat("_WobbleSpeed", wobbleSpeed);
     }
 
     public static float Remap(float value, float from1, float to1, float from2, float to2)
@@ -138,5 +158,17 @@ public class TempestMain : MonoBehaviour, IAbsorbable, IStability
     {
         Destroy(gameObject);
     }
+
+    //float intensity = Remap(size, level1Threshold, level2Threshold, 0.5f, 4f);
+    //float speed = Remap(size, level1Threshold, level2Threshold, -.5f, -.8f);
+    //coreMaterial.SetFloat("_NoiseSpeed", speed);
+    //coreMaterial.SetFloat("_WobbleIntensity", intensity);
+    //coreMaterial.SetFloat("_WobbleSpeed", intensity * 3f / 4f);
+    //coreMaterial.SetFloat("_WobbleFrequency", intensity / 2);
+
+    //outerWhiteMaterial.SetFloat("_NoiseSpeed", speed);
+    //outerWhiteMaterial.SetFloat("_WobbleIntensity", intensity);
+    //outerWhiteMaterial.SetFloat("_WobbleSpeed", intensity * 3f / 4f);
+    //outerWhiteMaterial.SetFloat("_WobbleFrequency", intensity / 2);
 }
 

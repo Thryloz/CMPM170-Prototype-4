@@ -10095,7 +10095,8 @@ MonoBehaviour:
   <Stability>k__BackingField: 100
   playerColor: {r: 0, g: 4.9000363, b: 46.306564, a: 0}
   absorbableEnemyColor: {r: 2.2453191, g: 38.619312, b: 0, a: 0}
-  unabsorbableEnemyColor: {r: 18.377878, g: 1.2324399, b: 0, a: 0}
+  unabsorbableEnemyColor: {r: 18.377882, g: 0.16682394, b: 0, a: 0}
+  coreColor: {r: 0, g: 0, b: 0, a: 0}
   level1Threshold: 1
   core: {fileID: 4237592149693090029}
   outerWhite: {fileID: 4543465970349305222}
@@ -10155,10 +10156,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7519725718524910022}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8447608239588674579}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15049,7 +15050,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8883798825940623314}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 0.6, y: 0.5, z: 0.6}
   m_ConstrainProportionsScale: 0
