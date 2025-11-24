@@ -9932,7 +9932,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6075310907494830365}
-  - component: {fileID: 7207645592657077301}
+  - component: {fileID: 8390572449965784622}
   - component: {fileID: 4278901719810017785}
   m_Layer: 0
   m_Name: AbsorbRange
@@ -9956,8 +9956,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4836281125039901091}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &7207645592657077301
-SphereCollider:
+--- !u!65 &8390572449965784622
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -9975,8 +9975,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 15
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 15, y: 15, z: 15}
+  m_Center: {x: 0, y: 7, z: 0}
 --- !u!114 &4278901719810017785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9991,7 +9991,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AbsorbRange
   selfTempest: {fileID: 6915800434355358500}
   list: []
-  col: {fileID: 7207645592657077301}
+  col: {fileID: 8390572449965784622}
 --- !u!1 &7016440577121544130
 GameObject:
   m_ObjectHideFlags: 0
