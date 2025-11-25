@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
 public class TempestMain : MonoBehaviour, IAbsorbable, IStability
@@ -7,6 +7,10 @@ public class TempestMain : MonoBehaviour, IAbsorbable, IStability
     public float size;
     [field: SerializeField, Range(0, 100)] public float Stability { get; set; }
     public float stabilityAbsorbThreshold = 20f;
+    [Tooltip("Amount the stability passively increases every second.")]
+    public float stabilityRate = 1f;
+    [Tooltip("Amount the size decreases every second in percentages.")]
+    public float sizeDecayPercentage = 1f;
 
     [Header("Colors")]
     [ColorUsage(true, true)]
@@ -48,7 +52,6 @@ public class TempestMain : MonoBehaviour, IAbsorbable, IStability
     [SerializeField] private GameObject VFXRoot;
     [SerializeField] private AbsorbRange absorbRange;
 
-
     private void Start()
     {
         if (TryGetComponent<TempestController>(out _))
@@ -65,13 +68,25 @@ public class TempestMain : MonoBehaviour, IAbsorbable, IStability
         outermostWhite.gameObject.SetActive(false);
 
         Stability = 100f;
+        StartCoroutine(SizeDecay());
     }
+
+    float timer = 0f;
 
     private void Update()
     {
         coreMaterial.SetColor("_Color", coreColor);
         HandleSizeVisuals();
         HandleStabilityVisuals();
+
+        if (timer > 1f)
+        {
+            Stability += stabilityRate;
+            timer = 0f;
+        }
+
+
+        timer += Time.deltaTime;
     }
     
     private void HandleSizeVisuals()
@@ -90,8 +105,6 @@ public class TempestMain : MonoBehaviour, IAbsorbable, IStability
 
             // remaps the tempestSize (1, thresholds) to speed (40 to 30)
             maxSpeed = Remap(size, level1Threshold, level2Threshold, 40f, 30f);
-
-
         }
         else if (size > level2Threshold && size <= level3Threshold)
         {
@@ -109,6 +122,7 @@ public class TempestMain : MonoBehaviour, IAbsorbable, IStability
         }
         else if (size > level3Threshold)
         {
+            outerBlack.gameObject.SetActive(true);
             outermostWhite.gameObject.SetActive(true);
 
 
@@ -124,7 +138,7 @@ public class TempestMain : MonoBehaviour, IAbsorbable, IStability
 
     private void HandleStabilityVisuals()
     {
-        float wobbleValue = Remap(Stability, 100f, 0f, 1f, 4f);
+        float wobbleValue = Remap(Stability, 100f, 0f, .2f, 2f);
         float wobbleSpeed = Remap(Stability, 100f, 0f, 3f, 5f);
 
         coreMaterial.SetFloat("_WobbleValue", wobbleValue);
@@ -152,7 +166,39 @@ public class TempestMain : MonoBehaviour, IAbsorbable, IStability
 
     public void ChangeSize(float value)
     {
-        size += value;
+        StartCoroutine(SizeCoroutine(value));
+    }
+
+    private IEnumerator SizeDecay()
+    {
+        while (true) 
+        {
+            yield return new WaitForSeconds(1f);
+            ChangeSize(-(size * (sizeDecayPercentage * 0.01f)));
+        }
+    }
+
+    private IEnumerator StabilityIncrease()
+    {
+        while (Stability < 100f)
+        {
+            yield return new WaitForSeconds(1f);
+            ModifyStability(1f);
+        }
+    }
+
+    private IEnumerator SizeCoroutine(float value)
+    {
+        float targetSize = size + value;
+        float t = 0f;
+        float duration = 1f;
+        while (t < duration)
+        {
+            size = Mathf.Lerp(size, targetSize, t/duration);
+            t += Time.deltaTime;
+            yield return null;
+        }
+        size = targetSize;
     }
 
     public void GetAbsorbed()
