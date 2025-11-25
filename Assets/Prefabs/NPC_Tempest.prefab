@@ -14842,7 +14842,7 @@ Transform:
   m_GameObject: {fileID: 2322963331099047571}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.6, y: 0.5, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -24699,7 +24699,7 @@ Transform:
   m_GameObject: {fileID: 4802633862281889299}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -29635,6 +29635,7 @@ MonoBehaviour:
   selfTempest: {fileID: 6915800434355358500}
   list: []
   col: {fileID: 7207645592657077301}
+  range: 0
 --- !u!1 &5013623596226522024
 GameObject:
   m_ObjectHideFlags: 0
@@ -29669,6 +29670,73 @@ Transform:
   - {fileID: 331418541981097343}
   m_Father: {fileID: 9031785461577231026}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5115407140296877046
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7851441699006211074}
+  - component: {fileID: 5277677627142841044}
+  - component: {fileID: 3437164629093508740}
+  m_Layer: 0
+  m_Name: DetectionRange
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7851441699006211074
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5115407140296877046}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4836281125039901091}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &5277677627142841044
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5115407140296877046}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 40
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3437164629093508740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5115407140296877046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87a33c0340319444b9b3a1a1c8551167, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FindTargets
+  range: 0
 --- !u!1 &7016440577121544130
 GameObject:
   m_ObjectHideFlags: 0
@@ -29682,6 +29750,7 @@ GameObject:
   - component: {fileID: 904771702182299186}
   - component: {fileID: 6915800434355358500}
   - component: {fileID: -1862186037083873830}
+  - component: {fileID: 7265770617201384834}
   m_Layer: 0
   m_Name: NPC_Tempest
   m_TagString: NPC_Tempest
@@ -29702,6 +29771,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
+  - {fileID: 7851441699006211074}
   - {fileID: 6075310907494830365}
   - {fileID: 3010422174993464269}
   - {fileID: 9031785461577231026}
@@ -29755,7 +29825,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 20, y: 25, z: 20}
-  m_Center: {x: 0, y: 14.3, z: 0}
+  m_Center: {x: 0, y: 12.5, z: 0}
 --- !u!114 &6915800434355358500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29768,6 +29838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f30c1aaf82702443babf112a2795d9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TempestMain
+  speed: 0
   size: 5
   colorList:
   - {r: 0, g: 10.123098, b: 67.274704, a: 0}
@@ -29808,7 +29879,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ff64ba944f598e4db3cdb8cbf5fd78c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPC_Tempest
-  tempest: {fileID: 6915800434355358500}
+  selfTempest: {fileID: 6915800434355358500}
+  targetSensor: {fileID: 3437164629093508740}
+  absorbRange: {fileID: 4278901719810017785}
+  agent: {fileID: 7265770617201384834}
+  predators: []
+  prey: []
+--- !u!195 &7265770617201384834
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7016440577121544130}
+  m_Enabled: 1
+  m_AgentTypeID: -1372625422
+  m_Radius: 10
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 5
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 25
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &7022664601813824396
 GameObject:
   m_ObjectHideFlags: 0

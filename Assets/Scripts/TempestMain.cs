@@ -1,9 +1,12 @@
+using System;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class TempestMain : MonoBehaviour, IAbsorbable
 {
     [Header("Stats")]
+    public float speed;
     public float size;
     [ColorUsage(true, true)]
     public List<Color> colorList = new List<Color>();
@@ -46,6 +49,10 @@ public class TempestMain : MonoBehaviour, IAbsorbable
     [SerializeField] private GameObject VFXRoot;
     [SerializeField] private AbsorbRange absorbRange;
 
+    // Observer/listener/event/thigns
+    [NonSerialized] public Action<GameObject, float> OnSizeChange; // <self, newSize>
+    [NonSerialized] public Action<GameObject> OnAbsorbed;
+
     private void Start()
     {
         level1CoreMaterial = tempestCoreLevel1.GetComponent<ParticleSystemRenderer>().material;
@@ -74,7 +81,7 @@ public class TempestMain : MonoBehaviour, IAbsorbable
             tempestOuterLevel1.transform.localScale = new Vector3(coreValue * 1.2f, coreValue, coreValue * 1.2f);
 
             float intensity = Remap(size, level1Threshold, level2Threshold, 0.5f, 4f);
-            float speed = Remap(size, level1Threshold, level2Threshold, -.5f, -.8f);
+            speed = Remap(size, level1Threshold, level2Threshold, -.5f, -.8f);
             level1CoreMaterial.SetFloat("_NoiseSpeed", speed);
             level1CoreMaterial.SetFloat("_WobbleIntensity", intensity);
             level1CoreMaterial.SetFloat("_WobbleSpeed", intensity * 3f/4f);
@@ -133,10 +140,18 @@ public class TempestMain : MonoBehaviour, IAbsorbable
     public void ChangeSize(float value)
     {
         size += value;
+        if (gameObject != null)
+        {
+            OnSizeChange?.Invoke(this.gameObject, value);
+        }
+
+            
     }
 
     public void GetAbsorbed()
     {
+        if (gameObject)
+            OnAbsorbed?.Invoke(gameObject);
         Destroy(gameObject);
     }
 }
