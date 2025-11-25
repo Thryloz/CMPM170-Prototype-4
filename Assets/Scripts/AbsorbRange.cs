@@ -30,17 +30,22 @@ public class AbsorbRange : MonoBehaviour
     {
         foreach (TempestMain tempest in new List<TempestMain>(list))
         {
-            if (tempest == null)
-            {
-                list.Remove(tempest);
-            }
-            else if (tempest.size < selfTempest.size) 
+            if (IsAbsorbable(tempest)) 
             {
                 selfTempest.ChangeSize(tempest.size);
                 list.Remove(tempest);
                 tempest.GetAbsorbed();
             }
         }
+    }
+
+    public bool IsAbsorbable(TempestMain tempest)
+    {
+        if (tempest.size < selfTempest.size && tempest.Stability <= selfTempest.stabilityAbsorbThreshold)
+        {
+            return true;
+        }
+        return false;
     }
 
     private void OnTriggerEnter(Collider other)

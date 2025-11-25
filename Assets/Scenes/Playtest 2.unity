@@ -753,6 +753,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6915800434355358500, guid: 4f5da5fcfc06a6b40bfeddb9d669d166, type: 3}
+      propertyPath: unabsorbableEnemyColor.b
+      value: 0.33771643
+      objectReference: {fileID: 0}
+    - target: {fileID: 6915800434355358500, guid: 4f5da5fcfc06a6b40bfeddb9d669d166, type: 3}
+      propertyPath: unabsorbableEnemyColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6915800434355358500, guid: 4f5da5fcfc06a6b40bfeddb9d669d166, type: 3}
+      propertyPath: unabsorbableEnemyColor.r
+      value: 12.499429
+      objectReference: {fileID: 0}
     - target: {fileID: 7016440577121544130, guid: 4f5da5fcfc06a6b40bfeddb9d669d166, type: 3}
       propertyPath: m_Name
       value: NPC_Tempest

@@ -4,6 +4,8 @@ public class NPC_Tempest : MonoBehaviour
 {
     [SerializeField] private TempestMain tempest;
     [SerializeField] private GameObject player;
+    [SerializeField] private AbsorbRange absorb;
+
 
     private TempestMain playerTempest;
 
@@ -22,7 +24,7 @@ public class NPC_Tempest : MonoBehaviour
     {
         if (player != null)
         {
-            if (tempest.size < playerTempest.size)
+            if (playerTempest.size > tempest.size && tempest.Stability <= tempest.stabilityAbsorbThreshold)
             {
                 tempest.coreColor = tempest.absorbableEnemyColor;
             }

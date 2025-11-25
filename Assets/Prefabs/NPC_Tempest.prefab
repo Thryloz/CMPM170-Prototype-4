@@ -14865,7 +14865,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -14987,9 +14987,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TempestMain
   size: 5
   <Stability>k__BackingField: 100
+  stabilityAbsorbThreshold: 20
   playerColor: {r: 0, g: 4.9000363, b: 46.306564, a: 0}
   absorbableEnemyColor: {r: 2.2453191, g: 38.619312, b: 0, a: 0}
-  unabsorbableEnemyColor: {r: 18.377878, g: 1.2324399, b: 0, a: 0}
+  unabsorbableEnemyColor: {r: 12.499429, g: 0, b: 0.33771643, a: 0}
   coreColor: {r: 18.377882, g: 0.19243856, b: 0, a: 0}
   level1Threshold: 1
   core: {fileID: 5676939686574075589}
@@ -15017,6 +15018,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPC_Tempest
   tempest: {fileID: 6915800434355358500}
   player: {fileID: 0}
+  absorb: {fileID: 4278901719810017785}
 --- !u!1 &7022664601813824396
 GameObject:
   m_ObjectHideFlags: 0

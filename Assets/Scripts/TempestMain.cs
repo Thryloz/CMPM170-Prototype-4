@@ -6,6 +6,7 @@ public class TempestMain : MonoBehaviour, IAbsorbable, IStability
     [Header("Stats")]
     public float size;
     [field: SerializeField, Range(0, 100)] public float Stability { get; set; }
+    public float stabilityAbsorbThreshold = 20f;
 
     [Header("Colors")]
     [ColorUsage(true, true)]
