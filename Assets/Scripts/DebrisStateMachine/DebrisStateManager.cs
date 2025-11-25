@@ -11,6 +11,8 @@ public class DebrisStateManager : MonoBehaviour
     public DebrisProjectileState projectileState = new DebrisProjectileState();
 
     [NonSerialized] public TempestController player;
+    public float stabilityDamage = 20;
+    public float sizeDamage = 10; // in percentage
 
     void Start()
     {
@@ -25,12 +27,12 @@ public class DebrisStateManager : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        currentState.OnTriggerEnter(this, other);
+        try{currentState.OnTriggerEnter(this, other);}catch{}
     }
 
     void OnTriggerStay(Collider other)
     {
-        currentState.OnTriggerStay(this, other);
+        try{currentState.OnTriggerStay(this, other);}catch{}
     }
 
     void OnTriggerExit(Collider other)

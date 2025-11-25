@@ -54,7 +54,7 @@ public class AbsorbRange : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("NPC_Tempest"))
+        if (other.CompareTag("NPC_Tempest") || other.CompareTag("Player"))
         {
             // should be try get component to be safe but ehhh
             list.Add(other.gameObject.GetComponent<TempestMain>());
@@ -63,7 +63,7 @@ public class AbsorbRange : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.CompareTag("NPC_Tempest"))
+        if(other.CompareTag("NPC_Tempest") || other.CompareTag("Player"))
         {
             list.Remove(other.gameObject.GetComponent<TempestMain>());
         }

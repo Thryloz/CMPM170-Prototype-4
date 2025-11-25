@@ -545,7 +545,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &356410831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -559,8 +559,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Spawner
   objectToSpawn: {fileID: 144920600073502044, guid: 2aeb74124d4375543bb82806bb5e099c, type: 3}
-  range: 231
-  amount: 100
+  range: 100
+  amount: 10
 --- !u!4 &356410832
 Transform:
   m_ObjectHideFlags: 0
@@ -805,6 +805,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 904771702182299186, guid: 1d769c6525a163642953552ab823da0b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1281278925339295161, guid: 1d769c6525a163642953552ab823da0b, type: 3}
+      propertyPath: spinSpeed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3186416494160945434, guid: 1d769c6525a163642953552ab823da0b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4836281125039901091, guid: 1d769c6525a163642953552ab823da0b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -855,7 +867,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7016440577121544130, guid: 1d769c6525a163642953552ab823da0b, type: 3}
       propertyPath: m_TagString
-      value: NPC_Tempest
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8447608239588674579, guid: 1d769c6525a163642953552ab823da0b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -869,6 +881,10 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 330585545}
+    - target: {fileID: 8964151998207303255, guid: 1d769c6525a163642953552ab823da0b, type: 3}
+      propertyPath: projectile
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8964151998207303255, guid: 1d769c6525a163642953552ab823da0b, type: 3}
       propertyPath: cameraController
       value: 

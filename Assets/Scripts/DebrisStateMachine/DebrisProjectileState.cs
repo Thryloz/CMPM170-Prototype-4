@@ -14,4 +14,14 @@ public class DebrisProjectileState : DebrisBaseState
     {
         debris.transform.position += debris.transform.forward * 100 * Time.deltaTime;
     }
+
+    public override void OnTriggerEnter(DebrisStateManager debris, Collider other)
+    {
+        if (other.CompareTag("NPC_Tempest"))
+        {
+            TempestMain tempest = other.GetComponent<TempestMain>();
+            tempest.size *= 1 - debris.sizeDamage/100; 
+            tempest.Stability -= debris.stabilityDamage;
+        }
+    }
 }
