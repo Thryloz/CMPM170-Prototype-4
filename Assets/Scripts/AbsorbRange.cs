@@ -6,50 +6,43 @@ public class AbsorbRange : MonoBehaviour
     [SerializeField] private TempestMain selfTempest;
     [SerializeField] private List<TempestMain> list = new List<TempestMain>();
 
-    [SerializeField] private BoxCollider col;
+    [SerializeField] private SphereCollider col;
+    public float range;
 
-    private float stabilityDamageTimer = 0f;
-
-
+    private SphereCollider sc;
     private void Awake()
     {
+        sc = GetComponent<SphereCollider>();
     }
-
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        
+    }
 
     // Update is called once per frame
     void Update()
     {
         CheckAbsorbList();
-        col.size = Vector3.one * (selfTempest.size * 3f);
+        col.radius = selfTempest.size * 2.5f;
+        range = col.radius;
     }
 
     private void CheckAbsorbList()
     {
         foreach (TempestMain tempest in new List<TempestMain>(list))
         {
-            stabilityDamageTimer += Time.deltaTime;
-            if (stabilityDamageTimer > 1f)
+            if (tempest == null)
             {
-                tempest.ModifyStability(-selfTempest.stabilityDamageRate);
-                stabilityDamageTimer = 0f;
+                list.Remove(tempest);
             }
-
-            if (IsAbsorbable(tempest)) 
+            else if (tempest.size < selfTempest.size) 
             {
                 selfTempest.ChangeSize(tempest.size);
                 list.Remove(tempest);
                 tempest.GetAbsorbed();
             }
         }
-    }
-
-    public bool IsAbsorbable(TempestMain tempest)
-    {
-        if (tempest.size < selfTempest.size && tempest.Stability <= selfTempest.stabilityAbsorbThreshold)
-        {
-            return true;
-        }
-        return false;
     }
 
     private void OnTriggerEnter(Collider other)
