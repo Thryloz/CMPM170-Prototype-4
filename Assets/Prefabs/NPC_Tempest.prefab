@@ -14886,6 +14886,73 @@ MonoBehaviour:
   selfTempest: {fileID: 6915800434355358500}
   list: []
   col: {fileID: 1368702910712509833}
+--- !u!1 &5009554702230310476
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4498008104060677246}
+  - component: {fileID: 5805157436004026219}
+  - component: {fileID: 6954372693273842225}
+  m_Layer: 0
+  m_Name: TargetSensor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4498008104060677246
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5009554702230310476}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4836281125039901091}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &5805157436004026219
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5009554702230310476}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 40
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6954372693273842225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5009554702230310476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e90d0ed0957aee439e6332d04fa65d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TargetSensor
+  range: 0
 --- !u!1 &7016440577121544130
 GameObject:
   m_ObjectHideFlags: 0
@@ -14899,6 +14966,7 @@ GameObject:
   - component: {fileID: 904771702182299186}
   - component: {fileID: 6915800434355358500}
   - component: {fileID: -1862186037083873830}
+  - component: {fileID: 4462105511241411674}
   m_Layer: 0
   m_Name: NPC_Tempest
   m_TagString: NPC_Tempest
@@ -14923,6 +14991,7 @@ Transform:
   - {fileID: 3010422174993464269}
   - {fileID: 9031785461577231026}
   - {fileID: 3411071971417627626}
+  - {fileID: 4498008104060677246}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &2420458326629255297
@@ -15020,9 +15089,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ff64ba944f598e4db3cdb8cbf5fd78c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPC_Tempest
-  tempest: {fileID: 6915800434355358500}
+  selfTempest: {fileID: 6915800434355358500}
   player: {fileID: 0}
-  absorb: {fileID: 4278901719810017785}
+  absorbRange: {fileID: 4278901719810017785}
+  targetSensor: {fileID: 6954372693273842225}
+  agent: {fileID: 4462105511241411674}
+  predators: []
+  prey: []
+--- !u!195 &4462105511241411674
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7016440577121544130}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 10
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 25
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &7022664601813824396
 GameObject:
   m_ObjectHideFlags: 0

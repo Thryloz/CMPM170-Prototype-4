@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -53,6 +54,10 @@ public class TempestMain : MonoBehaviour, IAbsorbable, IStability
 
     [Header("Debug")]
     [SerializeField] private float stabilityTimer = 0f;
+
+    // Observer/listener/event/thigns
+    [NonSerialized] public Action<GameObject, float> OnSizeChange; // <self, newSize>
+    [NonSerialized] public Action<GameObject> OnAbsorbed;
 
     private void Start()
     {
@@ -192,6 +197,8 @@ public class TempestMain : MonoBehaviour, IAbsorbable, IStability
 
     public void GetAbsorbed()
     {
+        if (gameObject)
+            OnAbsorbed?.Invoke(gameObject);
         Destroy(gameObject);
     }
 
