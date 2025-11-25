@@ -66,7 +66,7 @@ Material:
     - _WobbleSpeed: 3
     - _WobbleValue: 1
     m_Colors:
-    - _Color: {r: 5.2033286, g: 5.2033286, b: 5.2033286, a: 1}
+    - _Color: {r: 0.4641509, g: 0.4641509, b: 0.4641509, a: 1}
     - _TwirlCenter: {r: 7, g: 10, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
