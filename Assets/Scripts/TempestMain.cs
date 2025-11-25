@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TempestMain : MonoBehaviour, IAbsorbable, IStability
@@ -11,6 +12,8 @@ public class TempestMain : MonoBehaviour, IAbsorbable, IStability
     public float stabilityRate = 1f;
     [Tooltip("Amount the size decreases every second in percentages.")]
     public float sizeDecayPercentage = 1f;
+    public float maxSize = 50f;
+
 
     [Header("Colors")]
     [ColorUsage(true, true)]
@@ -39,10 +42,6 @@ public class TempestMain : MonoBehaviour, IAbsorbable, IStability
     private Material outerWhiteMaterial;
     private Material outerMaterialBlack;
     private Material outermostMaterialWhite;
-
-    [Header("Max Size")]
-    public float maxSize = 50f;
-
     
     [Header("Movement (should be influenced by size)")]
     public float maxSpeed;
@@ -52,6 +51,9 @@ public class TempestMain : MonoBehaviour, IAbsorbable, IStability
     [SerializeField] private GameObject VFXRoot;
     [SerializeField] private AbsorbRange absorbRange;
 
+    [Header("Debug")]
+    [SerializeField] private float stabilityTimer = 0f;
+
     private void Start()
     {
         if (TryGetComponent<TempestController>(out _))
@@ -59,10 +61,7 @@ public class TempestMain : MonoBehaviour, IAbsorbable, IStability
             coreColor = playerColor;
         }
 
-        coreMaterial = core.GetComponent<ParticleSystemRenderer>().material;
-        outerWhiteMaterial = outerWhite.GetComponent<ParticleSystemRenderer>().material;
-        outerMaterialBlack = outerBlack.GetComponent<ParticleSystemRenderer>().material;
-        outermostMaterialWhite = outermostWhite.GetComponent<ParticleSystemRenderer>().material;
+        GetMaterials();
 
         outerBlack.gameObject.SetActive(false);
         outermostWhite.gameObject.SetActive(false);
@@ -71,24 +70,27 @@ public class TempestMain : MonoBehaviour, IAbsorbable, IStability
         StartCoroutine(SizeDecay());
     }
 
-    float timer = 0f;
 
     private void Update()
     {
         coreMaterial.SetColor("_Color", coreColor);
         HandleSizeVisuals();
         HandleStabilityVisuals();
-
-        if (timer > 1f)
-        {
-            Stability += stabilityRate;
-            timer = 0f;
-        }
+        
+        PassiveStability();
 
 
-        timer += Time.deltaTime;
+        Mathf.Clamp(size, 1f, maxSize);
     }
-    
+
+    private void GetMaterials()
+    {
+        coreMaterial = core.GetComponent<ParticleSystemRenderer>().material;
+        outerWhiteMaterial = outerWhite.GetComponent<ParticleSystemRenderer>().material;
+        outerMaterialBlack = outerBlack.GetComponent<ParticleSystemRenderer>().material;
+        outermostMaterialWhite = outermostWhite.GetComponent<ParticleSystemRenderer>().material;
+    }
+
     private void HandleSizeVisuals()
     {
         if (size <= level2Threshold)
@@ -166,7 +168,7 @@ public class TempestMain : MonoBehaviour, IAbsorbable, IStability
 
     public void ChangeSize(float value)
     {
-        StartCoroutine(SizeCoroutine(value));
+        size += value;
     }
 
     private IEnumerator SizeDecay()
@@ -178,27 +180,14 @@ public class TempestMain : MonoBehaviour, IAbsorbable, IStability
         }
     }
 
-    private IEnumerator StabilityIncrease()
+    private void PassiveStability()
     {
-        while (Stability < 100f)
+        if (stabilityTimer > 1f)
         {
-            yield return new WaitForSeconds(1f);
-            ModifyStability(1f);
+            Stability += stabilityRate;
+            stabilityTimer = 0f;
         }
-    }
-
-    private IEnumerator SizeCoroutine(float value)
-    {
-        float targetSize = size + value;
-        float t = 0f;
-        float duration = 1f;
-        while (t < duration)
-        {
-            size = Mathf.Lerp(size, targetSize, t/duration);
-            t += Time.deltaTime;
-            yield return null;
-        }
-        size = targetSize;
+        stabilityTimer += Time.deltaTime;
     }
 
     public void GetAbsorbed()
