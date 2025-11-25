@@ -14870,7 +14870,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 10, z: 0}
 --- !u!114 &4278901719810017785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14987,7 +14987,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TempestMain
   size: 5
   <Stability>k__BackingField: 100
-  stabilityAbsorbThreshold: 20
+  stabilityAbsorbThreshold: 50
+  stabilityIncreaseRate: 1
+  sizeDecayPercentage: 1
+  stabilityDamageRate: 0
+  maxSize: 50
   playerColor: {r: 0, g: 4.9000363, b: 46.306564, a: 0}
   absorbableEnemyColor: {r: 2.2453191, g: 38.619312, b: 0, a: 0}
   unabsorbableEnemyColor: {r: 12.499429, g: 0, b: 0.33771643, a: 0}
@@ -14999,11 +15003,11 @@ MonoBehaviour:
   outerBlack: {fileID: 5976580867609008633}
   level3Threshold: 25
   outermostWhite: {fileID: 2340926732279758117}
-  maxSize: 50
   maxSpeed: 50
   acceleration: 2
   VFXRoot: {fileID: 700894331897692338}
   absorbRange: {fileID: 4278901719810017785}
+  stabilityTimer: 0
 --- !u!114 &-1862186037083873830
 MonoBehaviour:
   m_ObjectHideFlags: 0

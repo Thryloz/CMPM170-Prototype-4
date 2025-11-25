@@ -8,16 +8,13 @@ public class AbsorbRange : MonoBehaviour
 
     [SerializeField] private BoxCollider col;
 
-    private SphereCollider sc;
+    private float stabilityDamageTimer = 0f;
+
+
     private void Awake()
     {
-        sc = GetComponent<SphereCollider>();
     }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+
 
     // Update is called once per frame
     void Update()
@@ -30,6 +27,13 @@ public class AbsorbRange : MonoBehaviour
     {
         foreach (TempestMain tempest in new List<TempestMain>(list))
         {
+            stabilityDamageTimer += Time.deltaTime;
+            if (stabilityDamageTimer > 1f)
+            {
+                tempest.ModifyStability(-selfTempest.stabilityDamageRate);
+                stabilityDamageTimer = 0f;
+            }
+
             if (IsAbsorbable(tempest)) 
             {
                 selfTempest.ChangeSize(tempest.size);

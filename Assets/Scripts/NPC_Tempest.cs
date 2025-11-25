@@ -17,7 +17,7 @@ public class NPC_Tempest : MonoBehaviour
 
     private void Start()
     {
-        tempest.size = Random.Range(tempest.level1Threshold, tempest.maxSize);
+        tempest.size = Random.Range(tempest.level1Threshold, tempest.level2Threshold);
     }
 
     private void Update()

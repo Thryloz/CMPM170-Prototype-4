@@ -1,5 +1,4 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class TempestMain : MonoBehaviour, IAbsorbable, IStability
@@ -9,9 +8,10 @@ public class TempestMain : MonoBehaviour, IAbsorbable, IStability
     [field: SerializeField, Range(0, 100)] public float Stability { get; set; }
     public float stabilityAbsorbThreshold = 20f;
     [Tooltip("Amount the stability passively increases every second.")]
-    public float stabilityRate = 1f;
+    public float stabilityIncreaseRate = 1f;
     [Tooltip("Amount the size decreases every second in percentages.")]
     public float sizeDecayPercentage = 1f;
+    public float stabilityDamageRate;
     public float maxSize = 50f;
 
 
@@ -78,7 +78,7 @@ public class TempestMain : MonoBehaviour, IAbsorbable, IStability
         HandleStabilityVisuals();
         
         PassiveStability();
-
+        stabilityDamageRate = size * 0.75f;
 
         Mathf.Clamp(size, 1f, maxSize);
     }
@@ -184,7 +184,7 @@ public class TempestMain : MonoBehaviour, IAbsorbable, IStability
     {
         if (stabilityTimer > 1f)
         {
-            Stability += stabilityRate;
+            ModifyStability(stabilityIncreaseRate);
             stabilityTimer = 0f;
         }
         stabilityTimer += Time.deltaTime;
