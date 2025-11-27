@@ -1243,10 +1243,6 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6915800434355358500, guid: 1d769c6525a163642953552ab823da0b, type: 3}
-      propertyPath: size
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 6915800434355358500, guid: 1d769c6525a163642953552ab823da0b, type: 3}
       propertyPath: cameraController
       value: 
       objectReference: {fileID: 319165062}
