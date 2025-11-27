@@ -8,9 +8,6 @@ public class AbsorbRange : MonoBehaviour
 
     [SerializeField] private BoxCollider col;
 
-    private float stabilityDamageTimer = 0f;
-
-
     private void Awake()
     {
     }
@@ -27,13 +24,8 @@ public class AbsorbRange : MonoBehaviour
     {
         foreach (TempestMain tempest in new List<TempestMain>(list))
         {
-            stabilityDamageTimer += Time.deltaTime;
-            if (stabilityDamageTimer > 1f)
-            {
-                tempest.ModifyStability(-selfTempest.stabilityDamageRate);
-                stabilityDamageTimer = 0f;
-            }
 
+            tempest.ModifyStability(-selfTempest.stabilityDamageRate * Time.deltaTime);
             if (IsAbsorbable(tempest)) 
             {
                 selfTempest.ChangeSize(tempest.size);

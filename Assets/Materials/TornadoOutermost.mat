@@ -61,6 +61,7 @@ Material:
     - _TwirlSpeed: -2
     - _TwirlStrength: 1
     - _Value: 3
+    - _WobbleAmount: 0.5
     - _WobbleFrequency: 2
     - _WobbleIntensity: 4
     - _WobbleSpeed: 3

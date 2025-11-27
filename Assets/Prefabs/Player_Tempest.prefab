@@ -10092,19 +10092,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TempestMain
   size: 5
-  <Stability>k__BackingField: 100
-  stabilityAbsorbThreshold: 50
-  stabilityIncreaseRate: 1
   sizeDecayPercentage: 1
-  stabilityDamageRate: 0
   maxSize: 50
-  playerColor: {r: 0, g: 4.9000363, b: 46.306564, a: 0}
+  stabilityIncreaseRate: 5
+  stabilityAbsorbThreshold: 50
+  stabilityDamageRate: 0
+  <Stability>k__BackingField: 100
+  playerColor: {r: 0, g: 11.039583, b: 46.306564, a: 0}
   absorbableEnemyColor: {r: 2.2453191, g: 38.619312, b: 0, a: 0}
   unabsorbableEnemyColor: {r: 18.377882, g: 0.16682394, b: 0, a: 0}
   coreColor: {r: 0, g: 0, b: 0, a: 0}
   level1Threshold: 1
   core: {fileID: 4237592149693090029}
-  outerWhite: {fileID: 4543465970349305222}
+  outerGray: {fileID: 4543465970349305222}
   level2Threshold: 10
   outerBlack: {fileID: 5730922528838974661}
   level3Threshold: 25
@@ -10113,7 +10113,6 @@ MonoBehaviour:
   acceleration: 2
   VFXRoot: {fileID: 1023605435252568025}
   absorbRange: {fileID: 4278901719810017785}
-  stabilityTimer: 0
 --- !u!114 &8964151998207303255
 MonoBehaviour:
   m_ObjectHideFlags: 0
