@@ -1141,7 +1141,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1281278925339295161, guid: 1d769c6525a163642953552ab823da0b, type: 3}
       propertyPath: spinSpeed
-      value: 75
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2051146906320579839, guid: 1d769c6525a163642953552ab823da0b, type: 3}
       propertyPath: m_Layer
@@ -1399,6 +1399,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HUDAimIndicator
   cam: {fileID: 330585546}
+  angle: 0
 --- !u!1 &1824757420
 GameObject:
   m_ObjectHideFlags: 0
