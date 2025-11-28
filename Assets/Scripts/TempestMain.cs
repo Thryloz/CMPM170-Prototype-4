@@ -192,10 +192,19 @@ public class TempestMain : MonoBehaviour, IAbsorbable, IStability
         }
     }
 
-    public void ChangeSize(float value)
+    /// <param name="modType"> ["add", "scale"] </param>
+    public void ChangeSize(float value, string modType="add")
     {
-        size += value;
+        if (modType == "add")
+        {
+            size += value;
+        } 
+        else if (modType == "scale")
+        {
+            size *= value;
+        }
     }
+
 
     private IEnumerator SizeDecay()
     {

@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class DebrisStateManager : MonoBehaviour
 {
@@ -14,10 +13,13 @@ public class DebrisStateManager : MonoBehaviour
     public float stabilityDamage = 20;
     public float sizeDamage = 10; // in percentage
 
+    [NonSerialized] public HUDAimIndicator aimIndicator;
+
     void Start()
     {
         currentState = idleState;
         player = GameManager.Instance.player.GetComponent<TempestController>();
+        aimIndicator = GameManager.Instance.aimIndicator;
     }
 
     void Update()
