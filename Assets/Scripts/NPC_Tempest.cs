@@ -45,7 +45,7 @@ public class NPC_Tempest : MonoBehaviour
     {
         if (player != null)
         {
-            if (playerTempest.size > selfTempest.size && selfTempest.Stability <= selfTempest.stabilityAbsorbThreshold)
+            if (playerTempest.size > selfTempest.size)
             {
                 selfTempest.coreColor = selfTempest.absorbableEnemyColor;
             }

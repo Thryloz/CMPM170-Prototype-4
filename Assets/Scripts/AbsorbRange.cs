@@ -17,7 +17,7 @@ public class AbsorbRange : MonoBehaviour
     void Update()
     {
         CheckAbsorbList();
-        col.size = Vector3.one * (selfTempest.size * 3f);
+        col.size = Vector3.one * (selfTempest.size * 4f);
     }
 
     private void CheckAbsorbList()

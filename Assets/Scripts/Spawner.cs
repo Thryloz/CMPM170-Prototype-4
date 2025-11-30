@@ -14,7 +14,7 @@ public class Spawner : MonoBehaviour
     {
         for (int i = 0; i < amount; i++)
         {
-            Instantiate(objectToSpawn, transform.position + new Vector3(Random.Range(-range, range), 0, Random.Range(-range, range)), Quaternion.identity);
+            Instantiate(objectToSpawn, transform.position + new Vector3(Random.Range(-range, range), 10f, Random.Range(-range, range)), Quaternion.identity);
         }
     }
 
