@@ -8,10 +8,15 @@ public class EventBus {
         get { return _theInstance ??= new EventBus(); }
     }
 
-    // should prob use this elsewhere but only goes to hitmarkers for now
-    public Action<GameObject> OnDamage; 
-    public void DoDamage(GameObject target)
+    public enum DamageType
     {
-        OnDamage?.Invoke(target);
+        PROJECTILE,
+        PASSIVE
+    }
+
+    public Action<GameObject, DamageType> OnDamage; 
+    public void DoDamage(GameObject target, DamageType type)
+    {
+        OnDamage?.Invoke(target, type);
     }
 }

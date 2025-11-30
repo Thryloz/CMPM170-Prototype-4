@@ -10,12 +10,15 @@ public class HUDHitmarker : MonoBehaviour
         EventBus.Instance.OnDamage += RunShowHitmarker;
     }
 
-    private void RunShowHitmarker(GameObject target)
+    private void RunShowHitmarker(GameObject target, EventBus.DamageType type)
     {
-        CoroutineManager.Instance.Run(ShowHitmarker(target));
+        if (target.CompareTag("NPC_Tempest") && type == EventBus.DamageType.PROJECTILE)
+        {
+            CoroutineManager.Instance.Run(ShowHitmarker());
+        }
     }
 
-    private IEnumerator ShowHitmarker(GameObject BallsMcGee)
+    private IEnumerator ShowHitmarker()
     {
         hitmarker.SetActive(true);
         yield return new WaitForSeconds(0.1f);
