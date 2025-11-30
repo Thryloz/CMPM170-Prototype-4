@@ -37,6 +37,7 @@ public class DebrisProjectileState : DebrisBaseState
             TempestMain tempest = other.GetComponent<TempestMain>();
             tempest.ModifyStability(-debris.stabilityDamage);
             tempest.ChangeSize(1 - debris.sizeDamage/100, "scale");
+            EventBus.Instance.DoDamage(debris.player.gameObject);
             // tempest.size *= 1 - debris.sizeDamage/100; 
             // tempest.Stability -= debris.stabilityDamage;
         }
