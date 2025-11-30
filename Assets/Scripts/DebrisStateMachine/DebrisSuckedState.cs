@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class DebrisSuckedState : DebrisBaseState
@@ -35,7 +36,13 @@ public class DebrisSuckedState : DebrisBaseState
             // otherwise make it grooow
             if (player.projectile)
             {
-                player.projectile.transform.localScale += Vector3.one;
+                DebrisStateManager projectileManager = player.projectile.GetComponent<DebrisStateManager>();
+                if (player.projectile.transform.localScale.magnitude < 10)
+                {
+                    projectileManager.sizeDamage += 0.5f;
+                    projectileManager.stabilityDamage += 0.5f;
+                    player.projectile.transform.localScale += Vector3.one;
+                }
                 debris.DestroySelf();
             }
             else

@@ -7,6 +7,7 @@ public class GameManager
 
     public GameObject player;
     public GameObject[] enemies;
+    public HUDAimIndicator aimIndicator;
 
     void Start()
     {
