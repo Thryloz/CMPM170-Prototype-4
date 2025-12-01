@@ -12,6 +12,8 @@ public class DebrisStateManager : MonoBehaviour
     [NonSerialized] public TempestController player;
     public float stabilityDamage = 20;
     public float sizeDamage = 10; // in percentage
+    public float minSize = 2f;
+    public float maxSize = 5f;
 
     [NonSerialized] public HUDAimIndicator aimIndicator;
 
@@ -20,6 +22,8 @@ public class DebrisStateManager : MonoBehaviour
         currentState = idleState;
         player = GameManager.Instance.player.GetComponent<TempestController>();
         aimIndicator = GameManager.Instance.aimIndicator;
+        transform.localScale = Vector3.one * UnityEngine.Random.Range(minSize, maxSize);
+        transform.rotation = UnityEngine.Random.rotation;
     }
 
     void Update()
