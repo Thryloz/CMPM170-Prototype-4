@@ -227,17 +227,5 @@ public class TempestMain : MonoBehaviour, IAbsorbable, IStability
             OnAbsorbed?.Invoke(gameObject);
         Destroy(gameObject);
     }
-
-    //float intensity = Remap(size, level1Threshold, level2Threshold, 0.5f, 4f);
-    //float speed = Remap(size, level1Threshold, level2Threshold, -.5f, -.8f);
-    //coreMaterial.SetFloat("_NoiseSpeed", speed);
-    //coreMaterial.SetFloat("_WobbleIntensity", intensity);
-    //coreMaterial.SetFloat("_WobbleSpeed", intensity * 3f / 4f);
-    //coreMaterial.SetFloat("_WobbleFrequency", intensity / 2);
-
-    //outerWhiteMaterial.SetFloat("_NoiseSpeed", speed);
-    //outerWhiteMaterial.SetFloat("_WobbleIntensity", intensity);
-    //outerWhiteMaterial.SetFloat("_WobbleSpeed", intensity * 3f / 4f);
-    //outerWhiteMaterial.SetFloat("_WobbleFrequency", intensity / 2);
 }
 

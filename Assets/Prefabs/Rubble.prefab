@@ -100,7 +100,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 144920600073502044}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 9.87
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -155,3 +155,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DebrisStateManager
   stabilityDamage: 20
   sizeDamage: 10
+  minSize: 2
+  maxSize: 5
