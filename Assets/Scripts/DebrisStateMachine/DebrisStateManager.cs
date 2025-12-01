@@ -20,8 +20,9 @@ public class DebrisStateManager : MonoBehaviour
     void Start()
     {
         currentState = idleState;
-        player = GameManager.Instance.player.GetComponent<TempestController>();
+        player = GameManager.Instance.player;
         aimIndicator = GameManager.Instance.aimIndicator;
+
         transform.localScale = Vector3.one * UnityEngine.Random.Range(minSize, maxSize);
         transform.rotation = UnityEngine.Random.rotation;
     }

@@ -33,8 +33,6 @@ public class TempestController : MonoBehaviour
     private float minZoomDistance;
     private void Awake()
     {
-        GameManager.Instance.player = gameObject;
-
         controls = new PlayerControls();
         rb = GetComponent<Rigidbody>();
         if (tempestMain == null)
