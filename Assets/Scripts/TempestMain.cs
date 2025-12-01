@@ -182,7 +182,7 @@ public class TempestMain : MonoBehaviour, IAbsorbable, IStability
 
     public void ModifyStability(float amount)
     {
-        EventBus.Instance.DoDamage(gameObject, EventBus.DamageType.PASSIVE);
+        //EventBus.Instance.DoDamage(gameObject, EventBus.DamageType.PASSIVE);
         if (Stability + amount >= 100f)
         {
             Stability = 100f;
