@@ -32,21 +32,6 @@ public class DebrisStateManager : MonoBehaviour
         currentState.UpdateState(this);
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        try{currentState.OnTriggerEnter(this, other);}catch{}
-    }
-
-    void OnTriggerStay(Collider other)
-    {
-        try{currentState.OnTriggerStay(this, other);}catch{}
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        currentState.OnTriggerExit(this, other);
-    }
-
     public void SwitchState(DebrisBaseState newState)
     {
         currentState = newState;

@@ -14884,7 +14884,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AbsorbRange
   selfTempest: {fileID: 6915800434355358500}
-  list: []
+  tempestList: []
+  rubbleList: []
   col: {fileID: 1368702910712509833}
 --- !u!1 &5009554702230310476
 GameObject:

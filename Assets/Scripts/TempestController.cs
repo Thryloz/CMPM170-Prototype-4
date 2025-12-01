@@ -59,6 +59,8 @@ public class TempestController : MonoBehaviour
 
     private void Update()
     {
+        isSucking = suck.ReadValue<float>() != 0;
+
         if (tempestMain.size <= tempestMain.level3Threshold)
         {
             cameraController.minDistance = TempestMain.Remap(tempestMain.size, tempestMain.level1Threshold, tempestMain.level3Threshold, 15f, 50f);
@@ -72,7 +74,6 @@ public class TempestController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        isSucking = suck.ReadValue<float>() != 0;
 
         forward = cam.transform.forward;
         forward.y = 0f;
@@ -95,12 +96,12 @@ public class TempestController : MonoBehaviour
         velocityMagnitude = rb.linearVelocity.magnitude;
     }
 
-    public void CreateProjectile()
-    {
-        projectile = Instantiate(projectilePrefab);
-        projectile.transform.parent = transform.Find("OrbitTarget");
-        projectile.transform.localPosition = Vector3.zero;
-        projectile.transform.localRotation = transform.Find("OrbitTarget").transform.rotation;
-        projectile.transform.localScale = Vector3.one;
-    }
+    //public void CreateProjectile()
+    //{
+    //    projectile = Instantiate(projectilePrefab);
+    //    projectile.transform.parent = transform.Find("OrbitTarget");
+    //    projectile.transform.localPosition = Vector3.zero;
+    //    projectile.transform.localRotation = transform.Find("OrbitTarget").transform.rotation;
+    //    projectile.transform.localScale = Vector3.one;
+    //}
 }

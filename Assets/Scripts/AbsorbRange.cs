@@ -1,10 +1,12 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Transactions;
 
 public class AbsorbRange : MonoBehaviour
 {
     [SerializeField] private TempestMain selfTempest;
-    [SerializeField] private List<TempestMain> list = new List<TempestMain>();
+    [SerializeField] private List<TempestMain> tempestList = new List<TempestMain>();
+    [SerializeField] private List<DebrisStateManager> rubbleList = new List<DebrisStateManager>();
 
     [SerializeField] private BoxCollider col;
 
@@ -22,15 +24,22 @@ public class AbsorbRange : MonoBehaviour
 
     private void CheckAbsorbList()
     {
-        foreach (TempestMain tempest in new List<TempestMain>(list))
+        foreach (TempestMain tempest in new List<TempestMain>(tempestList))
         {
-
             tempest.ModifyStability(-selfTempest.stabilityDamageRate * Time.deltaTime);
             if (IsAbsorbable(tempest)) 
             {
                 selfTempest.ChangeSize(tempest.size);
-                list.Remove(tempest);
+                tempestList.Remove(tempest);
                 tempest.GetAbsorbed();
+            }
+        }
+
+        foreach (DebrisStateManager rubble in rubbleList)
+        {
+            if (rubble.currentState == rubble.idleState)
+            {
+                rubble.SwitchState(rubble.suckedState);
             }
         }
     }
@@ -49,15 +58,27 @@ public class AbsorbRange : MonoBehaviour
         if (other.CompareTag("NPC_Tempest") || other.CompareTag("Player"))
         {
             // should be try get component to be safe but ehhh
-            list.Add(other.gameObject.GetComponent<TempestMain>());
+            tempestList.Add(other.gameObject.GetComponent<TempestMain>());
+        }
+
+        if (other.CompareTag("Rubble"))
+        {
+            rubbleList.Add(other.gameObject.GetComponent<DebrisStateManager>());
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.CompareTag("NPC_Tempest") || other.CompareTag("Player"))
+        if (other.CompareTag("NPC_Tempest") || other.CompareTag("Player"))
         {
-            list.Remove(other.gameObject.GetComponent<TempestMain>());
+            tempestList.Remove(other.gameObject.GetComponent<TempestMain>());
+        }
+
+        if (other.CompareTag("Rubble"))
+        {
+            DebrisStateManager rubble = other.gameObject.GetComponent<DebrisStateManager>();
+            rubble.SwitchState(rubble.idleState);
+            rubbleList.Remove(rubble);
         }
     }
 }
