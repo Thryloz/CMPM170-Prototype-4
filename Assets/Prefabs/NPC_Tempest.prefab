@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9031785461577231026}
-  m_Layer: 2
+  m_Layer: 7
   m_Name: VFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 331418541981097343}
   - component: {fileID: 5976580867609008633}
   - component: {fileID: 1015241319638614273}
-  m_Layer: 2
+  m_Layer: 7
   m_Name: OuterBlack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4938,7 +4938,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3010422174993464269}
-  m_Layer: 2
+  m_Layer: 7
   m_Name: CameraFollow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4971,7 +4971,7 @@ GameObject:
   - component: {fileID: 4531705505851731625}
   - component: {fileID: 42140757838939748}
   - component: {fileID: 7321900829518932030}
-  m_Layer: 2
+  m_Layer: 7
   m_Name: OuterWhite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9865,7 +9865,7 @@ GameObject:
   - component: {fileID: 3411071971417627626}
   - component: {fileID: 1281278925339295161}
   - component: {fileID: 1262862375024483661}
-  m_Layer: 2
+  m_Layer: 7
   m_Name: OrbitTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9934,7 +9934,7 @@ GameObject:
   - component: {fileID: 4783781944545456487}
   - component: {fileID: 5676939686574075589}
   - component: {fileID: 7811574791540463873}
-  m_Layer: 2
+  m_Layer: 7
   m_Name: Core
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14828,7 +14828,7 @@ GameObject:
   - component: {fileID: 6075310907494830365}
   - component: {fileID: 1368702910712509833}
   - component: {fileID: 4278901719810017785}
-  m_Layer: 2
+  m_Layer: 7
   m_Name: AbsorbRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14897,7 +14897,7 @@ GameObject:
   - component: {fileID: 4498008104060677246}
   - component: {fileID: 5805157436004026219}
   - component: {fileID: 6954372693273842225}
-  m_Layer: 2
+  m_Layer: 7
   m_Name: TargetSensor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14967,7 +14967,7 @@ GameObject:
   - component: {fileID: 6915800434355358500}
   - component: {fileID: -1862186037083873830}
   - component: {fileID: 4462105511241411674}
-  m_Layer: 2
+  m_Layer: 7
   m_Name: NPC_Tempest
   m_TagString: NPC_Tempest
   m_Icon: {fileID: 0}
@@ -15128,7 +15128,7 @@ GameObject:
   - component: {fileID: 7826724016347251098}
   - component: {fileID: 2340926732279758117}
   - component: {fileID: 5630191500941476952}
-  m_Layer: 2
+  m_Layer: 7
   m_Name: OutermostWhite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20025,7 +20025,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 144920600073502044, guid: 2aeb74124d4375543bb82806bb5e099c, type: 3}
       propertyPath: m_Layer
-      value: 2
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 144920600073502044, guid: 2aeb74124d4375543bb82806bb5e099c, type: 3}
       propertyPath: m_IsActive
