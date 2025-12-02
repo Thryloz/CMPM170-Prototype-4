@@ -6,6 +6,7 @@ public class AbsorbRange : MonoBehaviour
     [SerializeField] private TempestMain selfTempest;
     [SerializeField] private List<TempestMain> tempestList = new List<TempestMain>();
     [SerializeField] private List<DebrisStateManager> rubbleList = new List<DebrisStateManager>();
+    [SerializeField] private List<GameObject> stabilityList = new List<GameObject>();
 
     [SerializeField] private BoxCollider col;
 
@@ -39,6 +40,8 @@ public class AbsorbRange : MonoBehaviour
             }
         }
 
+
+
         if (GameManager.Instance.player.isSucking)
         {
             foreach (DebrisStateManager rubble in rubbleList)
@@ -67,10 +70,13 @@ public class AbsorbRange : MonoBehaviour
             // should be try get component to be safe but ehhh
             tempestList.Add(other.gameObject.GetComponent<TempestMain>());
         }
-
-        if (other.CompareTag("Rubble"))
+        else if (other.CompareTag("Rubble"))
         {
             rubbleList.Add(other.gameObject.GetComponent<DebrisStateManager>());
+        }
+        else if (other.CompareTag("TurnToRubble"))
+        {
+            stabilityList.Add(other.gameObject);
         }
     }
 

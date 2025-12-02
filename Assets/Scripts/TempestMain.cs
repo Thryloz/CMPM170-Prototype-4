@@ -83,6 +83,7 @@ public class TempestMain : MonoBehaviour, IAbsorbable, IStability
         
         PassiveStability();
         stabilityDamageRate = size * 0.75f;
+        stabilityIncreaseRate = size * 0.5f;
     }
 
     private void GetMaterials()
@@ -140,8 +141,6 @@ public class TempestMain : MonoBehaviour, IAbsorbable, IStability
     float wobbleSpeedBlack;
     float wobbleAmountBlack;
 
-    float wobbleSpeedOuter;
-    float wobbleAmountOuter;
     private void HandleStabilityVisuals()
     {
         if (size <= level2Threshold)
@@ -182,7 +181,6 @@ public class TempestMain : MonoBehaviour, IAbsorbable, IStability
 
     public void ModifyStability(float amount)
     {
-        //EventBus.Instance.DoDamage(gameObject, EventBus.DamageType.PASSIVE);
         if (Stability + amount >= 100f)
         {
             Stability = 100f;

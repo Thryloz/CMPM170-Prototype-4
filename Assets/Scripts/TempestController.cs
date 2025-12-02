@@ -8,6 +8,8 @@ public class TempestController : MonoBehaviour
     [SerializeField] private ThirdPersonCameraController cameraController;
     [SerializeField] private TempestMain tempestMain;
     [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private GameObject crosshair;
+    [SerializeField] private GameObject indicator;
 
 
     [Header("Suck & Throw Fields")]
@@ -39,6 +41,7 @@ public class TempestController : MonoBehaviour
         {
             tempestMain = GetComponent<TempestMain>();
         }
+
     }
 
 
@@ -56,6 +59,11 @@ public class TempestController : MonoBehaviour
         controls.Player.Disable();
     }
 
+    private void Start()
+    {
+        crosshair.SetActive(false);
+        indicator.SetActive(false);
+    }
 
     private void Update()
     {
@@ -68,6 +76,17 @@ public class TempestController : MonoBehaviour
         else
         {
             cameraController.minDistance = TempestMain.Remap(tempestMain.size, tempestMain.level3Threshold, tempestMain.maxSize, 50f, 200f);
+        }
+        
+        if (projectile != null)
+        {
+            crosshair.SetActive(true);
+            indicator.SetActive(true);
+        }
+        else
+        {
+            crosshair.SetActive(false);
+            indicator.SetActive(false);
         }
     }
 
