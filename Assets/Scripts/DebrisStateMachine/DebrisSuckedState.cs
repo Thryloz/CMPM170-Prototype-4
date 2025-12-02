@@ -36,7 +36,7 @@ public class DebrisSuckedState : DebrisBaseState
                 DebrisStateManager projectileManager = player.projectile.GetComponent<DebrisStateManager>();
                 if (player.projectile.transform.localScale.magnitude < 10)
                 {
-                    projectileManager.sizeDamage += 0.5f;
+                    projectileManager.sizePercentDamage += 0.5f;
                     projectileManager.stabilityDamage += 0.5f;
                     player.projectile.transform.localScale += Vector3.one;
                 }

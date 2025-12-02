@@ -1,3 +1,4 @@
+using UnityEditor.UI;
 using UnityEngine;
 
 public class DebrisProjectileState : DebrisBaseState
@@ -46,7 +47,7 @@ public class DebrisProjectileState : DebrisBaseState
         {
             TempestMain tempest = other.GetComponent<TempestMain>();
             tempest.ModifyStability(-debris.stabilityDamage);
-            tempest.ChangeSize(1 - debris.sizeDamage/100, "scale");
+            tempest.ChangeSize(-tempest.size * (debris.sizePercentDamage / 100f));
             EventBus.Instance.DoDamage(other.gameObject, EventBus.DamageType.PROJECTILE);
             // tempest.size *= 1 - debris.sizeDamage/100; 
             // tempest.Stability -= debris.stabilityDamage;
