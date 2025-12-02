@@ -14,6 +14,10 @@ public class AbsorbRange : MonoBehaviour
     {
     }
 
+    private void Start()
+    {
+        
+    }
 
     // Update is called once per frame
     void Update()
@@ -52,18 +56,21 @@ public class AbsorbRange : MonoBehaviour
 
 
 
-        if (GameManager.Instance.player.isSucking && CompareTag("Player"))
+        if (selfTempest.isPlayer)
         {
-            foreach (DebrisStateManager rubble in rubbleList)
+            if (selfTempest.gameObject.GetComponent<TempestController>().isSucking)
             {
-                if (rubble == null)
+                foreach (DebrisStateManager rubble in rubbleList)
                 {
-                    rubbleList.Remove(rubble);
-                    return;
-                }
-                if (rubble.currentState == rubble.idleState)
-                {
-                    rubble.SwitchState(rubble.suckedState);
+                    if (rubble == null)
+                    {
+                        rubbleList.Remove(rubble);
+                        return;
+                    }
+                    if (rubble.currentState == rubble.idleState)
+                    {
+                        rubble.SwitchState(rubble.suckedState);
+                    }
                 }
             }
         }

@@ -5,9 +5,13 @@ public class HUDStabilityBar : MonoBehaviour
 {
     TempestMain player;
     [SerializeField] private Slider healthBar;
+
+    private void Awake()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<TempestMain>();
+    }
     void Start()
     {
-        player = GameManager.Instance.player.GetComponent<TempestMain>();
         healthBar.value = player.Stability;
     }
 

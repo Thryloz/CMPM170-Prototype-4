@@ -58,7 +58,7 @@ public class TempestMain : MonoBehaviour, IAbsorbable, IStability
     [NonSerialized] public Action<GameObject, float> OnSizeChange; // <self, newSize>
     [NonSerialized] public Action<GameObject> OnAbsorbed;
 
-    private bool isPlayer = false;
+    public bool isPlayer = false;
     private void Start()
     {
         if (TryGetComponent<TempestController>(out _))
