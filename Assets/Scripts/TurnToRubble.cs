@@ -9,7 +9,7 @@ public class TurnToRubble : MonoBehaviour, IStability
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        transform.localScale = Vector3.one * Random.Range(1f, 3f);
     }
 
     // Update is called once per frame

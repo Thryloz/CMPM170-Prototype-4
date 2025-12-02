@@ -58,11 +58,13 @@ public class TempestMain : MonoBehaviour, IAbsorbable, IStability
     [NonSerialized] public Action<GameObject, float> OnSizeChange; // <self, newSize>
     [NonSerialized] public Action<GameObject> OnAbsorbed;
 
+    private bool isPlayer = false;
     private void Start()
     {
         if (TryGetComponent<TempestController>(out _))
         {
             coreColor = playerColor;
+            isPlayer = true;
         }
 
         GetMaterials();
@@ -214,6 +216,10 @@ public class TempestMain : MonoBehaviour, IAbsorbable, IStability
 
     public void GetAbsorbed()
     {
+        if (isPlayer)
+        {
+            GameManager.Instance.EndGame();
+        }
         OnAbsorbed?.Invoke(gameObject);
         Destroy(gameObject);
     }

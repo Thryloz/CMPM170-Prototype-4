@@ -18,6 +18,11 @@ public class HUDAimIndicator : MonoBehaviour
     [SerializeField] private Transform cam; // attach in inspector
     public float angle;
 
+    private void Awake()
+    {
+        cam = Camera.main.transform;
+    }
+
     void Start()
     {
         GameManager.Instance.aimIndicator = this;
