@@ -9,6 +9,7 @@ public class DebrisStateManager : MonoBehaviour
     public DebrisOrbitingState orbitingState = new DebrisOrbitingState();
     public DebrisProjectileState projectileState = new DebrisProjectileState();
 
+
     [NonSerialized] public TempestController player;
     public float stabilityDamage = 20;
     public float sizeDamage = 10; // in percentage
@@ -16,6 +17,9 @@ public class DebrisStateManager : MonoBehaviour
     public float maxSize = 5f;
 
     [NonSerialized] public HUDAimIndicator aimIndicator;
+
+    [Header("Debug")]
+    public string state;
 
     void Start()
     {
@@ -36,6 +40,7 @@ public class DebrisStateManager : MonoBehaviour
     {
         currentState = newState;
         newState.EnterState(this);
+        state = newState.ToString();
     }
 
     public void DestroySelf()

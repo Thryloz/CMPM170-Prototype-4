@@ -80,7 +80,12 @@ public class AbsorbRange : MonoBehaviour
         if (other.CompareTag("Rubble"))
         {
             DebrisStateManager rubble = other.gameObject.GetComponent<DebrisStateManager>();
-            rubble.SwitchState(rubble.idleState);
+
+            if (rubble.currentState == rubble.suckedState)
+            {
+                rubble.SwitchState(rubble.idleState);
+            }
+
             rubbleList.Remove(rubble);
         }
     }
