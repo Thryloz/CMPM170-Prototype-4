@@ -9990,7 +9990,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AbsorbRange
   selfTempest: {fileID: 6915800434355358500}
-  list: []
+  tempestList: []
+  rubbleList: []
   col: {fileID: 8390572449965784622}
 --- !u!1 &7016440577121544130
 GameObject:
@@ -10107,9 +10108,10 @@ MonoBehaviour:
   tempestMain: {fileID: 6915800434355358500}
   projectilePrefab: {fileID: 144920600073502044, guid: 2aeb74124d4375543bb82806bb5e099c, type: 3}
   cameraController: {fileID: 0}
+  orbitTargetController: {fileID: 1281278925339295161}
   isSucking: 0
   suckSpeed: 25
-  projectile: {fileID: 144920600073502044, guid: 2aeb74124d4375543bb82806bb5e099c, type: 3}
+  projectile: {fileID: 0}
   velocity: {x: 0, y: 0, z: 0}
   velocityMagnitude: 0
 --- !u!1 &7519725718524910022

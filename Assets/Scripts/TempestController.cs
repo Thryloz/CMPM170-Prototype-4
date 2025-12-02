@@ -5,9 +5,9 @@ public class TempestController : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private Camera cam;
+    [SerializeField] private ThirdPersonCameraController cameraController;
     [SerializeField] private TempestMain tempestMain;
     [SerializeField] private GameObject projectilePrefab;
-    [SerializeField] private ThirdPersonCameraController cameraController;
 
 
     [Header("Suck & Throw Fields")]

@@ -35,11 +35,14 @@ public class AbsorbRange : MonoBehaviour
             }
         }
 
-        foreach (DebrisStateManager rubble in rubbleList)
+        if (GameManager.Instance.player.isSucking)
         {
-            if (rubble.currentState == rubble.idleState)
+            foreach (DebrisStateManager rubble in rubbleList)
             {
-                rubble.SwitchState(rubble.suckedState);
+                if (rubble.currentState == rubble.idleState)
+                {
+                    rubble.SwitchState(rubble.suckedState);
+                }
             }
         }
     }

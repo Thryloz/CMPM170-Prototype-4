@@ -24,16 +24,12 @@ public class DebrisSuckedState : DebrisBaseState
         }
 
         // move to OrbitTarget
-        debris.transform.position += debris.transform.forward * suckSpeed * Time.deltaTime;
-    }
+        //debris.transform.position += debris.transform.forward * suckSpeed * Time.deltaTime;
+        debris.transform.position = Vector3.MoveTowards(debris.transform.position, target.transform.position, suckSpeed * Time.deltaTime);
 
 
-    public override void OnTriggerEnter(DebrisStateManager debris, Collider other)
-    {
-        if (other.gameObject.TryGetComponent<OrbitTargetController>(out OrbitTargetController hasTarget))
+        if (Vector3.Distance(debris.transform.position, target.transform.position) < 0.1f)
         {
-            // reached final destination so become a projectile if player doens't have one
-            // otherwise make it grooow
             if (player.projectile)
             {
                 DebrisStateManager projectileManager = player.projectile.GetComponent<DebrisStateManager>();
@@ -49,8 +45,34 @@ public class DebrisSuckedState : DebrisBaseState
             {
                 player.projectile = debris.gameObject;
                 debris.SwitchState(debris.orbitingState);
-            } 
+            }
         }
     }
+
+
+    //public override void OnTriggerEnter(DebrisStateManager debris, Collider other)
+    //{
+    //    if (other.gameObject.TryGetComponent<OrbitTargetController>(out OrbitTargetController hasTarget))
+    //    {
+    //        // reached final destination so become a projectile if player doens't have one
+    //        // otherwise make it grooow
+    //        if (player.projectile)
+    //        {
+    //            DebrisStateManager projectileManager = player.projectile.GetComponent<DebrisStateManager>();
+    //            if (player.projectile.transform.localScale.magnitude < 10)
+    //            {
+    //                projectileManager.sizeDamage += 0.5f;
+    //                projectileManager.stabilityDamage += 0.5f;
+    //                player.projectile.transform.localScale += Vector3.one;
+    //            }
+    //            debris.DestroySelf();
+    //        }
+    //        else
+    //        {
+    //            player.projectile = debris.gameObject;
+    //            debris.SwitchState(debris.orbitingState);
+    //        } 
+    //    }
+    //}
 
 }
