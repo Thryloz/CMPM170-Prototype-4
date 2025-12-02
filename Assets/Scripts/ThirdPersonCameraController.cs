@@ -37,7 +37,7 @@ public class ThirdPersonCameraController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         targetZoom = currentZoom = orbital.Radius;
-        
+        Time.timeScale = 1f;
     }
 
     private void HandleMouseScroll(InputAction.CallbackContext context)

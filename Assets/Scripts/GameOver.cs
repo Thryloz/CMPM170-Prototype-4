@@ -11,6 +11,7 @@ public class GameOver : MonoBehaviour
 
     public void MainMenuButton()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("MainMenuScene");
+        gameObject.SetActive(false);
     }
 }

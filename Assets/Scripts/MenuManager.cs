@@ -7,7 +7,7 @@ public class MenuManager : MonoBehaviour
     public GameObject mainMenu;
     public void PlayGame()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
     }
 
     public void QuitGame()
@@ -23,16 +23,5 @@ public class MenuManager : MonoBehaviour
     public void HideMainMenu()
     {
         mainMenu.SetActive(false);
-    }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
