@@ -1,12 +1,13 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class MenuManager : MonoBehaviour
 {
     public GameObject mainMenu;
     public void PlayGame()
     {
-        SceneManager.LoadScene("PlayTest1");
+        SceneManager.LoadScene(2);
     }
 
     public void QuitGame()
@@ -17,13 +18,12 @@ public class MenuManager : MonoBehaviour
 
     public void ShowMainMenu()
     {
-        mainMenu.SetActive(true);
+        mainMenu.SetActive(true); 
     }
     public void HideMainMenu()
     {
         mainMenu.SetActive(false);
     }
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

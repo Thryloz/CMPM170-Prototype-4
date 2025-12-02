@@ -11,9 +11,8 @@ public class HowToPlay : MonoBehaviour
 
     public void HidePanel()
     {
-        howToPlayPanel.SetActive(false);
+        howToPlayPanel.SetActive(false); 
     }
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
