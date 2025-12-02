@@ -4,7 +4,7 @@ public class DebrisIdleState : DebrisBaseState
 {
     public override void EnterState(DebrisStateManager debris)
     {
-        debris.GetComponent<Rigidbody>().useGravity = true;
+        debris.rb.useGravity = true;
     }
 
 

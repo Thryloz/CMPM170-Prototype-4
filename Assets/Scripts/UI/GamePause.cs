@@ -11,7 +11,7 @@ public class GamePause : MonoBehaviour
     [SerializeField] private Button playButton;
 
     [Header("Settings")]
-    [SerializeField] public string mainMenuSceneName = "MainMenu";
+    [SerializeField] public string mainMenuSceneName = "MainMenuScene";
 
     private bool isPaused = false;
 

@@ -12,22 +12,28 @@ public class DebrisProjectileState : DebrisBaseState
         if (debris.player.aimIndicator.angle>=-40 && debris.player.aimIndicator.angle<=40)
         {
             // orient this to face whereever the player is pointed at
-            // RaycastHit hit;
-            // if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, Mathf.Infinity))
+            //RaycastHit hit;
+            Vector3 targetAngle = new Vector3(Camera.main.transform.forward.x, 0, Camera.main.transform.forward.z);
+            debris.rb.AddForce(targetAngle.normalized * 100f, ForceMode.VelocityChange);
+            // if (Physics.Raycast(Camera.main.transform.position, targetAngle, out hit, Mathf.Infinity))
             // {
             //    debris.transform.LookAt(hit.point);
             // }
-            debris.transform.localRotation = Camera.main.transform.rotation;
+            // debris.transform.localRotation = Camera.main.transform.rotation;
         }
         // or send backward when [140-220]
         else if (debris.player.aimIndicator.angle>=140 && debris.player.aimIndicator.angle<=220)
         {
             debris.transform.rotation = Quaternion.Euler(0,180,0);
+            debris.rb.AddForce(debris.transform.forward.normalized * 100f, ForceMode.VelocityChange);
+
+        }
+        else
+        {
+            debris.rb.AddForce(debris.transform.forward.normalized * 100f, ForceMode.VelocityChange);
         }
         timer = 0f;
-        debris.GetComponent<Rigidbody>().useGravity = true;
-        debris.GetComponent<Rigidbody>().AddForce(debris.transform.forward.normalized * 100f, ForceMode.VelocityChange);
-
+        debris.rb.useGravity = true;
     }
 
     public override void UpdateState(DebrisStateManager debris)
@@ -44,7 +50,6 @@ public class DebrisProjectileState : DebrisBaseState
     {
         if (other.CompareTag("NPC_Tempest"))
         {
-            Debug.Log("hit npc tempest");
             TempestMain tempest = other.GetComponent<TempestMain>();
             tempest.ModifyStability(-debris.stabilityDamage);
             tempest.ChangeSize(-tempest.size * (debris.sizePercentDamage / 100f));

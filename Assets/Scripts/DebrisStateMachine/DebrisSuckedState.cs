@@ -11,7 +11,7 @@ public class DebrisSuckedState : DebrisBaseState
         player = debris.player;
         target = player.transform.Find("OrbitTarget");
         suckSpeed = player.suckSpeed;
-        debris.GetComponent<Rigidbody>().useGravity = false;
+        debris.rb.useGravity = false;
     }
     
     public override void UpdateState(DebrisStateManager debris)

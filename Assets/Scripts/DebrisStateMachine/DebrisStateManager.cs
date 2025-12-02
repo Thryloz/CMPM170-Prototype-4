@@ -17,18 +17,22 @@ public class DebrisStateManager : MonoBehaviour
     public float minSize = 2f;
     public float maxSize = 5f;
 
+    public Rigidbody rb;
 
     [Header("Debug")]
     public string state;
 
     void Awake()
     {
+        rb = GetComponent<Rigidbody>();
         currentState = idleState;
     }
 
     void Start()
     {
-        player = GameObject.FindWithTag("Player").GetComponent<TempestController>();
+        GameObject playerObj = GameObject.FindWithTag("Player");
+        if (playerObj != null)
+            player = playerObj.GetComponent<TempestController>();
 
         transform.localScale = Vector3.one * UnityEngine.Random.Range(minSize, maxSize);
         transform.rotation = UnityEngine.Random.rotation;
