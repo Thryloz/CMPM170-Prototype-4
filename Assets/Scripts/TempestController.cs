@@ -25,7 +25,7 @@ public class TempestController : MonoBehaviour
 
     private Rigidbody rb;
 
-    private Vector3 forceDirection = Vector3.zero;
+    public Vector3 forceDirection = Vector3.zero;
     private Vector3 forward = Vector3.zero;
     private Vector3 right = Vector3.zero;
     private Vector3 horizontalVelocity = Vector3.zero;

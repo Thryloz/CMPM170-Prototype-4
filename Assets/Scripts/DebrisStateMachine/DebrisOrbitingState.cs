@@ -22,8 +22,7 @@ public class DebrisOrbitingState : DebrisBaseState
         {
             debris.SwitchState(debris.projectileState);
         }
-        proj.transform.position = target.position;
-        proj.transform.rotation = target.rotation;
+        proj.transform.SetPositionAndRotation(target.position, target.rotation);
     }
 
 }
