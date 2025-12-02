@@ -14817,76 +14817,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!1 &4885072599608691867
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6075310907494830365}
-  - component: {fileID: 1368702910712509833}
-  - component: {fileID: 4278901719810017785}
-  m_Layer: 7
-  m_Name: AbsorbRange
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6075310907494830365
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4885072599608691867}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4836281125039901091}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1368702910712509833
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4885072599608691867}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 10, z: 0}
---- !u!114 &4278901719810017785
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4885072599608691867}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82f435ddf5233f64789ad4856026ffaa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AbsorbRange
-  selfTempest: {fileID: 6915800434355358500}
-  tempestList: []
-  rubbleList: []
-  col: {fileID: 1368702910712509833}
 --- !u!1 &5009554702230310476
 GameObject:
   m_ObjectHideFlags: 0
@@ -14968,6 +14898,7 @@ GameObject:
   - component: {fileID: 6915800434355358500}
   - component: {fileID: -1862186037083873830}
   - component: {fileID: 4462105511241411674}
+  - component: {fileID: 6021470321202714295}
   m_Layer: 7
   m_Name: NPC_Tempest
   m_TagString: NPC_Tempest
@@ -14988,7 +14919,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 6075310907494830365}
   - {fileID: 3010422174993464269}
   - {fileID: 9031785461577231026}
   - {fileID: 3411071971417627626}
@@ -15076,7 +15006,7 @@ MonoBehaviour:
   maxSpeed: 50
   acceleration: 2
   VFXRoot: {fileID: 700894331897692338}
-  absorbRange: {fileID: 4278901719810017785}
+  absorbRange: {fileID: 0}
 --- !u!114 &-1862186037083873830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15091,7 +15021,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPC_Tempest
   selfTempest: {fileID: 6915800434355358500}
   player: {fileID: 0}
-  absorbRange: {fileID: 4278901719810017785}
+  absorbRange: {fileID: 0}
   targetSensor: {fileID: 6954372693273842225}
   agent: {fileID: 4462105511241411674}
   predators: []
@@ -15118,6 +15048,23 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &6021470321202714295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7016440577121544130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82f435ddf5233f64789ad4856026ffaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AbsorbRange
+  selfTempest: {fileID: 6915800434355358500}
+  tempestList: []
+  rubbleList: []
+  stabilityList: []
+  col: {fileID: 904771702182299186}
 --- !u!1 &7022664601813824396
 GameObject:
   m_ObjectHideFlags: 0

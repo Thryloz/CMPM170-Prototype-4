@@ -7,7 +7,7 @@ public abstract class DebrisBaseState
         // Debug.Log($"[DEBRIS] state switched to {debris.currentState}");
     }
     public virtual void UpdateState(DebrisStateManager debris){}
-    public virtual void OnTriggerEnter(DebrisStateManager debris, Collider other){}
+    public virtual void OnCollisionEnter(DebrisStateManager debris, Collider other){}
     public virtual void OnTriggerStay(DebrisStateManager debris, Collider other){}
     public virtual void OnTriggerExit(DebrisStateManager debris, Collider other)
     {

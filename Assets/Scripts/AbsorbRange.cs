@@ -42,6 +42,11 @@ public class AbsorbRange : MonoBehaviour
 
         foreach (TurnToRubble rubbleable in new List<TurnToRubble>(stabilityList))
         {
+            if (rubbleable == null)
+            {
+                stabilityList.Remove(rubbleable);
+                return;
+            }
             rubbleable.ModifyStability(-selfTempest.stabilityDamageRate * 1.5f * Time.deltaTime);
         }
 
@@ -51,6 +56,11 @@ public class AbsorbRange : MonoBehaviour
         {
             foreach (DebrisStateManager rubble in rubbleList)
             {
+                if (rubble == null)
+                {
+                    rubbleList.Remove(rubble);
+                    return;
+                }
                 if (rubble.currentState == rubble.idleState)
                 {
                     rubble.SwitchState(rubble.suckedState);

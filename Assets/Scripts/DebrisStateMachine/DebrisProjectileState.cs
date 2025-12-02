@@ -1,4 +1,3 @@
-using UnityEditor.UI;
 using UnityEngine;
 
 public class DebrisProjectileState : DebrisBaseState
@@ -41,16 +40,15 @@ public class DebrisProjectileState : DebrisBaseState
         }
     }
 
-    public override void OnTriggerEnter(DebrisStateManager debris, Collider other)
+    public override void OnCollisionEnter(DebrisStateManager debris, Collider other)
     {
         if (other.CompareTag("NPC_Tempest"))
         {
+            Debug.Log("hit npc tempest");
             TempestMain tempest = other.GetComponent<TempestMain>();
             tempest.ModifyStability(-debris.stabilityDamage);
             tempest.ChangeSize(-tempest.size * (debris.sizePercentDamage / 100f));
             EventBus.Instance.DoDamage(other.gameObject, EventBus.DamageType.PROJECTILE);
-            // tempest.size *= 1 - debris.sizeDamage/100; 
-            // tempest.Stability -= debris.stabilityDamage;
         }
     }
 }
