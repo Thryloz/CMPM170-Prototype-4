@@ -37,18 +37,18 @@ public class GamePause : MonoBehaviour
 
     void Update()
     {
-        // Check for ESC key press
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (isPaused)
-            {
-                ResumeGame();
-            }
-            else
-            {
-                PauseGame();
-            }
-        }
+        //// Check for ESC key press
+        //if (Input.GetKeyDown(KeyCode.Escape))
+        //{
+        //    if (isPaused)
+        //    {
+        //        ResumeGame();
+        //    }
+        //    else
+        //    {
+        //        PauseGame();
+        //    }
+        //}
     }
 
     public void PauseGame()
