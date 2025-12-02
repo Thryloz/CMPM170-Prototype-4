@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7981349343278274640}
   - component: {fileID: 5730922528838974661}
   - component: {fileID: 7717860311840946363}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: OuterBlack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4905,7 +4905,7 @@ GameObject:
   - component: {fileID: 8985469523205880673}
   - component: {fileID: 3466631356241178594}
   - component: {fileID: 1279877567251868535}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: OutermostWhite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4921,7 +4921,7 @@ Transform:
   m_GameObject: {fileID: 343776631142272911}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.6999998, z: 0}
+  m_LocalPosition: {x: 0, y: 0.7, z: 0}
   m_LocalScale: {x: 4, y: 1, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9797,7 +9797,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8447608239588674579}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: VFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9813,7 +9813,7 @@ Transform:
   m_GameObject: {fileID: 1023605435252568025}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.6, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -9832,7 +9832,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3010422174993464269}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CameraFollow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9865,7 +9865,7 @@ GameObject:
   - component: {fileID: 3411071971417627626}
   - component: {fileID: 1281278925339295161}
   - component: {fileID: 1262862375024483661}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: OrbitTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9881,7 +9881,7 @@ Transform:
   m_GameObject: {fileID: 3002295959738152914}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.1, y: 7.6, z: 0}
+  m_LocalPosition: {x: -10, y: 7.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9901,7 +9901,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OrbitTargerController
   target: {fileID: 4836281125039901091}
-  spinSpeed: 10
+  spinSpeed: 100
 --- !u!135 &1262862375024483661
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -9934,7 +9934,7 @@ GameObject:
   - component: {fileID: 6075310907494830365}
   - component: {fileID: 8390572449965784622}
   - component: {fileID: 4278901719810017785}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AbsorbRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9976,7 +9976,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 15, y: 15, z: 15}
-  m_Center: {x: 0, y: 10, z: 0}
+  m_Center: {x: 0, y: 7.5, z: 0}
 --- !u!114 &4278901719810017785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9990,7 +9990,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AbsorbRange
   selfTempest: {fileID: 6915800434355358500}
-  list: []
+  tempestList: []
+  rubbleList: []
   col: {fileID: 8390572449965784622}
 --- !u!1 &7016440577121544130
 GameObject:
@@ -10002,12 +10003,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4836281125039901091}
   - component: {fileID: 2420458326629255297}
-  - component: {fileID: 904771702182299186}
   - component: {fileID: 6915800434355358500}
   - component: {fileID: 8964151998207303255}
-  m_Layer: 0
+  - component: {fileID: 3503212248474442361}
+  - component: {fileID: 7562240400751713637}
+  m_Layer: 6
   m_Name: Player_Tempest
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10058,7 +10060,63 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!65 &904771702182299186
+--- !u!114 &6915800434355358500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7016440577121544130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f30c1aaf82702443babf112a2795d9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TempestMain
+  size: 5
+  sizeDecayPercentage: 1
+  maxSize: 50
+  stabilityIncreaseRate: 2
+  stabilityAbsorbThreshold: 50
+  stabilityDamageRate: 0
+  <Stability>k__BackingField: 100
+  playerColor: {r: 0, g: 11.039583, b: 46.306564, a: 0}
+  absorbableEnemyColor: {r: 2.2453191, g: 38.619312, b: 0, a: 0}
+  unabsorbableEnemyColor: {r: 18.377882, g: 0.16682394, b: 0, a: 0}
+  coreColor: {r: 0, g: 0, b: 0, a: 0}
+  level1Threshold: 1
+  core: {fileID: 4237592149693090029}
+  outerGray: {fileID: 4543465970349305222}
+  level2Threshold: 10
+  outerBlack: {fileID: 5730922528838974661}
+  level3Threshold: 25
+  outermostWhite: {fileID: 3466631356241178594}
+  maxSpeed: 50
+  acceleration: 2
+  VFXRoot: {fileID: 1023605435252568025}
+  absorbRange: {fileID: 0}
+--- !u!114 &8964151998207303255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7016440577121544130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75a93e2dc9a46df4499522534234c4ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TempestController
+  cam: {fileID: 0}
+  cameraController: {fileID: 0}
+  tempestMain: {fileID: 6915800434355358500}
+  projectilePrefab: {fileID: 144920600073502044, guid: 2aeb74124d4375543bb82806bb5e099c, type: 3}
+  isSucking: 0
+  suckSpeed: 25
+  projectile: {fileID: 0}
+  velocity: {x: 0, y: 0, z: 0}
+  velocityMagnitude: 0
+  forceDirection: {x: 0, y: 0, z: 0}
+--- !u!65 &3503212248474442361
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10077,9 +10135,9 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 20, y: 25, z: 20}
-  m_Center: {x: 0, y: 14.3, z: 0}
---- !u!114 &6915800434355358500
+  m_Size: {x: 15, y: 15, z: 15}
+  m_Center: {x: 0, y: 7.5, z: 0}
+--- !u!114 &7562240400751713637
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10088,53 +10146,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7016440577121544130}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f30c1aaf82702443babf112a2795d9f, type: 3}
+  m_Script: {fileID: 11500000, guid: 82f435ddf5233f64789ad4856026ffaa, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TempestMain
-  size: 5
-  <Stability>k__BackingField: 100
-  stabilityAbsorbThreshold: 50
-  stabilityIncreaseRate: 1
-  sizeDecayPercentage: 1
-  stabilityDamageRate: 0
-  maxSize: 50
-  playerColor: {r: 0, g: 4.9000363, b: 46.306564, a: 0}
-  absorbableEnemyColor: {r: 2.2453191, g: 38.619312, b: 0, a: 0}
-  unabsorbableEnemyColor: {r: 18.377882, g: 0.16682394, b: 0, a: 0}
-  coreColor: {r: 0, g: 0, b: 0, a: 0}
-  level1Threshold: 1
-  core: {fileID: 4237592149693090029}
-  outerWhite: {fileID: 4543465970349305222}
-  level2Threshold: 10
-  outerBlack: {fileID: 5730922528838974661}
-  level3Threshold: 25
-  outermostWhite: {fileID: 3466631356241178594}
-  maxSpeed: 50
-  acceleration: 2
-  VFXRoot: {fileID: 1023605435252568025}
-  absorbRange: {fileID: 4278901719810017785}
-  stabilityTimer: 0
---- !u!114 &8964151998207303255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7016440577121544130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75a93e2dc9a46df4499522534234c4ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TempestController
-  cam: {fileID: 0}
-  tempestMain: {fileID: 6915800434355358500}
-  projectilePrefab: {fileID: 144920600073502044, guid: 2aeb74124d4375543bb82806bb5e099c, type: 3}
-  cameraController: {fileID: 0}
-  isSucking: 0
-  suckSpeed: 25
-  projectile: {fileID: 144920600073502044, guid: 2aeb74124d4375543bb82806bb5e099c, type: 3}
-  velocity: {x: 0, y: 0, z: 0}
-  velocityMagnitude: 0
+  m_EditorClassIdentifier: Assembly-CSharp::AbsorbRange
+  selfTempest: {fileID: 6915800434355358500}
+  tempestList: []
+  rubbleList: []
+  col: {fileID: 3503212248474442361}
 --- !u!1 &7519725718524910022
 GameObject:
   m_ObjectHideFlags: 0
@@ -10146,7 +10164,7 @@ GameObject:
   - component: {fileID: 1111552508617239284}
   - component: {fileID: 4237592149693090029}
   - component: {fileID: 2756891447538411676}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Core
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15040,7 +15058,7 @@ GameObject:
   - component: {fileID: 675532649242845922}
   - component: {fileID: 4543465970349305222}
   - component: {fileID: 4457825572481752726}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: OuterWhite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19934,6 +19952,10 @@ PrefabInstance:
     - target: {fileID: 144920600073502044, guid: 2aeb74124d4375543bb82806bb5e099c, type: 3}
       propertyPath: m_Name
       value: orbit vizualizer
+      objectReference: {fileID: 0}
+    - target: {fileID: 144920600073502044, guid: 2aeb74124d4375543bb82806bb5e099c, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 144920600073502044, guid: 2aeb74124d4375543bb82806bb5e099c, type: 3}
       propertyPath: m_IsActive

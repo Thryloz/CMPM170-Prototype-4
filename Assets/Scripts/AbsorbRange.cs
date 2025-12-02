@@ -4,12 +4,11 @@ using System.Collections.Generic;
 public class AbsorbRange : MonoBehaviour
 {
     [SerializeField] private TempestMain selfTempest;
-    [SerializeField] private List<TempestMain> list = new List<TempestMain>();
+    [SerializeField] private List<TempestMain> tempestList = new List<TempestMain>();
+    [SerializeField] private List<DebrisStateManager> rubbleList = new List<DebrisStateManager>();
+    [SerializeField] private List<TurnToRubble> stabilityList = new List<TurnToRubble>();
 
     [SerializeField] private BoxCollider col;
-
-    private float stabilityDamageTimer = 0f;
-
 
     private void Awake()
     {
@@ -19,26 +18,53 @@ public class AbsorbRange : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckAbsorbList();
-        col.size = Vector3.one * (selfTempest.size * 3f);
+        CheckAbsorbList(); // oh boy
+        col.size = Vector3.one * (selfTempest.size * 4f);
     }
 
     private void CheckAbsorbList()
     {
-        foreach (TempestMain tempest in new List<TempestMain>(list))
+        foreach (TempestMain tempest in new List<TempestMain>(tempestList))
         {
-            stabilityDamageTimer += Time.deltaTime;
-            if (stabilityDamageTimer > 1f)
+            tempest.ModifyStability(-selfTempest.stabilityDamageRate * Time.deltaTime);
+            if (tempest == null)
             {
-                tempest.ModifyStability(-selfTempest.stabilityDamageRate);
-                stabilityDamageTimer = 0f;
+                tempestList.Remove(tempest);
+                return;
             }
-
             if (IsAbsorbable(tempest)) 
             {
                 selfTempest.ChangeSize(tempest.size);
-                list.Remove(tempest);
+                tempestList.Remove(tempest);
                 tempest.GetAbsorbed();
+            }
+        }
+
+        foreach (TurnToRubble rubbleable in new List<TurnToRubble>(stabilityList))
+        {
+            if (rubbleable == null)
+            {
+                stabilityList.Remove(rubbleable);
+                return;
+            }
+            rubbleable.ModifyStability(-selfTempest.stabilityDamageRate * 1.5f * Time.deltaTime);
+        }
+
+
+
+        if (GameManager.Instance.player.isSucking && CompareTag("Player"))
+        {
+            foreach (DebrisStateManager rubble in rubbleList)
+            {
+                if (rubble == null)
+                {
+                    rubbleList.Remove(rubble);
+                    return;
+                }
+                if (rubble.currentState == rubble.idleState)
+                {
+                    rubble.SwitchState(rubble.suckedState);
+                }
             }
         }
     }
@@ -54,18 +80,38 @@ public class AbsorbRange : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("NPC_Tempest"))
+        if (other.CompareTag("NPC_Tempest") || other.CompareTag("Player"))
         {
             // should be try get component to be safe but ehhh
-            list.Add(other.gameObject.GetComponent<TempestMain>());
+            tempestList.Add(other.gameObject.GetComponent<TempestMain>());
+        }
+        else if (other.CompareTag("Rubble"))
+        {
+            rubbleList.Add(other.gameObject.GetComponent<DebrisStateManager>());
+        }
+        else if (other.CompareTag("TurnToRubble"))
+        {
+            stabilityList.Add(other.gameObject.GetComponent<TurnToRubble>());
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.CompareTag("NPC_Tempest"))
+        if (other.CompareTag("NPC_Tempest") || other.CompareTag("Player"))
         {
-            list.Remove(other.gameObject.GetComponent<TempestMain>());
+            tempestList.Remove(other.gameObject.GetComponent<TempestMain>());
+        }
+
+        if (other.CompareTag("Rubble"))
+        {
+            DebrisStateManager rubble = other.gameObject.GetComponent<DebrisStateManager>();
+
+            if (rubble.currentState == rubble.suckedState)
+            {
+                rubble.SwitchState(rubble.idleState);
+            }
+
+            rubbleList.Remove(rubble);
         }
     }
 }

@@ -5,9 +5,11 @@ public class TempestController : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private Camera cam;
+    [SerializeField] private ThirdPersonCameraController cameraController;
     [SerializeField] private TempestMain tempestMain;
     [SerializeField] private GameObject projectilePrefab;
-    [SerializeField] private ThirdPersonCameraController cameraController;
+    [SerializeField] private GameObject crosshair;
+    [SerializeField] private GameObject indicator;
 
 
     [Header("Suck & Throw Fields")]
@@ -25,7 +27,7 @@ public class TempestController : MonoBehaviour
 
     private Rigidbody rb;
 
-    private Vector3 forceDirection = Vector3.zero;
+    public Vector3 forceDirection = Vector3.zero;
     private Vector3 forward = Vector3.zero;
     private Vector3 right = Vector3.zero;
     private Vector3 horizontalVelocity = Vector3.zero;
@@ -33,14 +35,13 @@ public class TempestController : MonoBehaviour
     private float minZoomDistance;
     private void Awake()
     {
-        GameManager.Instance.player = gameObject;
-
         controls = new PlayerControls();
         rb = GetComponent<Rigidbody>();
         if (tempestMain == null)
         {
             tempestMain = GetComponent<TempestMain>();
         }
+
     }
 
 
@@ -58,9 +59,16 @@ public class TempestController : MonoBehaviour
         controls.Player.Disable();
     }
 
+    private void Start()
+    {
+        crosshair.SetActive(false);
+        indicator.SetActive(false);
+    }
 
     private void Update()
     {
+        isSucking = suck.ReadValue<float>() != 0;
+
         if (tempestMain.size <= tempestMain.level3Threshold)
         {
             cameraController.minDistance = TempestMain.Remap(tempestMain.size, tempestMain.level1Threshold, tempestMain.level3Threshold, 15f, 50f);
@@ -69,12 +77,22 @@ public class TempestController : MonoBehaviour
         {
             cameraController.minDistance = TempestMain.Remap(tempestMain.size, tempestMain.level3Threshold, tempestMain.maxSize, 50f, 200f);
         }
+        
+        if (projectile != null)
+        {
+            crosshair.SetActive(true);
+            indicator.SetActive(true);
+        }
+        else
+        {
+            crosshair.SetActive(false);
+            indicator.SetActive(false);
+        }
     }
 
 
     private void FixedUpdate()
     {
-        isSucking = suck.ReadValue<float>() != 0;
 
         forward = cam.transform.forward;
         forward.y = 0f;
@@ -97,12 +115,12 @@ public class TempestController : MonoBehaviour
         velocityMagnitude = rb.linearVelocity.magnitude;
     }
 
-    public void CreateProjectile()
-    {
-        projectile = Instantiate(projectilePrefab);
-        projectile.transform.parent = transform.Find("OrbitTarget");
-        projectile.transform.localPosition = Vector3.zero;
-        projectile.transform.localRotation = transform.Find("OrbitTarget").transform.rotation;
-        projectile.transform.localScale = Vector3.one;
-    }
+    //public void CreateProjectile()
+    //{
+    //    projectile = Instantiate(projectilePrefab);
+    //    projectile.transform.parent = transform.Find("OrbitTarget");
+    //    projectile.transform.localPosition = Vector3.zero;
+    //    projectile.transform.localRotation = transform.Find("OrbitTarget").transform.rotation;
+    //    projectile.transform.localScale = Vector3.one;
+    //}
 }

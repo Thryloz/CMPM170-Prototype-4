@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class DebrisStateManager : MonoBehaviour
 {
@@ -10,12 +9,26 @@ public class DebrisStateManager : MonoBehaviour
     public DebrisOrbitingState orbitingState = new DebrisOrbitingState();
     public DebrisProjectileState projectileState = new DebrisProjectileState();
 
+
     [NonSerialized] public TempestController player;
+    public float stabilityDamage = 20;
+    public float sizePercentDamage = 20; // in percentage
+    public float minSize = 2f;
+    public float maxSize = 5f;
+
+    [NonSerialized] public HUDAimIndicator aimIndicator;
+
+    [Header("Debug")]
+    public string state;
 
     void Start()
     {
         currentState = idleState;
-        player = GameManager.Instance.player.GetComponent<TempestController>();
+        player = GameManager.Instance.player;
+        aimIndicator = GameManager.Instance.aimIndicator;
+
+        transform.localScale = Vector3.one * UnityEngine.Random.Range(minSize, maxSize);
+        transform.rotation = UnityEngine.Random.rotation;
     }
 
     void Update()
@@ -23,25 +36,11 @@ public class DebrisStateManager : MonoBehaviour
         currentState.UpdateState(this);
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        currentState.OnTriggerEnter(this, other);
-    }
-
-    void OnTriggerStay(Collider other)
-    {
-        currentState.OnTriggerStay(this, other);
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        currentState.OnTriggerExit(this, other);
-    }
-
     public void SwitchState(DebrisBaseState newState)
     {
         currentState = newState;
         newState.EnterState(this);
+        state = newState.ToString();
     }
 
     public void DestroySelf()

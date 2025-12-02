@@ -14,8 +14,20 @@ public class Zone : MonoBehaviour
 
     public Zones zoneType = Zones.Neutral;
 
-    public List<TempestMain> tempestList = new List<TempestMain>();
+    [Header("Warm")]
+    public float warmSizeIncreaseRate = 0.1f;
 
+    [Header("Cold")]
+    [Tooltip("Keep it positive.")]
+    public float coldSizeDecreaseRate = 0.1f;
+
+    [Header("Windy")]
+    public float windySizeDecreaseRate = 0.1f;
+    public float windyStabilityDecreaseRate = 0.1f;
+
+
+    [Header("References")]
+    public List<TempestMain> tempestList = new List<TempestMain>();
     [SerializeField] private SphereCollider col;
 
     private void Start()
@@ -45,12 +57,14 @@ public class Zone : MonoBehaviour
             case Zones.Neutral:
                 break;
             case Zones.Warm:
-                tempest.ChangeSize(1f);
+                tempest.ChangeSize(warmSizeIncreaseRate * Time.deltaTime);
                 break;
             case Zones.Cold:
-                tempest.ChangeSize(-1f);
+                tempest.ChangeSize(-coldSizeDecreaseRate * Time.deltaTime);
                 break;
             case Zones.Windy:
+                tempest.ChangeSize(-windyStabilityDecreaseRate * Time.deltaTime);
+                tempest.ModifyStability(-windyStabilityDecreaseRate * Time.deltaTime);
                 break;
             default:
                 break;

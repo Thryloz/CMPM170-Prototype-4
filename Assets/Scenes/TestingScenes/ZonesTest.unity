@@ -772,7 +772,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Zone
   zoneType: 0
+  warmSizeIncreaseRate: 0.1
+  coldSizeDecreaseRate: 0.1
+  windySizeDecreaseRate: 0.1
+  windyStabilityDecreaseRate: 0.1
   tempestList: []
+  col: {fileID: 1152534526}
 --- !u!1 &1573160587
 GameObject:
   m_ObjectHideFlags: 0
