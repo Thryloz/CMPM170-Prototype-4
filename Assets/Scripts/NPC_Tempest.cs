@@ -28,7 +28,7 @@ public class NPC_Tempest : MonoBehaviour
 
     private void Start()
     {
-        selfTempest.size = Random.Range(selfTempest.level1Threshold, selfTempest.level2Threshold);
+        selfTempest.size = Random.Range(selfTempest.level1Threshold, 15f);
         predators = new List<GameObject>();
         prey = new List<GameObject>();
 

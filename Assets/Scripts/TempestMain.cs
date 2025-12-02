@@ -223,8 +223,7 @@ public class TempestMain : MonoBehaviour, IAbsorbable, IStability
 
     public void GetAbsorbed()
     {
-        if (gameObject)
-            OnAbsorbed?.Invoke(gameObject);
+        OnAbsorbed?.Invoke(gameObject);
         Destroy(gameObject);
     }
 }

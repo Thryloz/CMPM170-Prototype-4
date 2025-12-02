@@ -10005,6 +10005,8 @@ GameObject:
   - component: {fileID: 2420458326629255297}
   - component: {fileID: 6915800434355358500}
   - component: {fileID: 8964151998207303255}
+  - component: {fileID: 3503212248474442361}
+  - component: {fileID: 7562240400751713637}
   m_Layer: 6
   m_Name: Player_Tempest
   m_TagString: Player
@@ -10073,7 +10075,7 @@ MonoBehaviour:
   size: 5
   sizeDecayPercentage: 1
   maxSize: 50
-  stabilityIncreaseRate: 5
+  stabilityIncreaseRate: 2
   stabilityAbsorbThreshold: 50
   stabilityDamageRate: 0
   <Stability>k__BackingField: 100
@@ -10091,7 +10093,7 @@ MonoBehaviour:
   maxSpeed: 50
   acceleration: 2
   VFXRoot: {fileID: 1023605435252568025}
-  absorbRange: {fileID: 4278901719810017785}
+  absorbRange: {fileID: 0}
 --- !u!114 &8964151998207303255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10105,15 +10107,52 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TempestController
   cam: {fileID: 0}
+  cameraController: {fileID: 0}
   tempestMain: {fileID: 6915800434355358500}
   projectilePrefab: {fileID: 144920600073502044, guid: 2aeb74124d4375543bb82806bb5e099c, type: 3}
-  cameraController: {fileID: 0}
-  orbitTargetController: {fileID: 1281278925339295161}
   isSucking: 0
   suckSpeed: 25
   projectile: {fileID: 0}
   velocity: {x: 0, y: 0, z: 0}
   velocityMagnitude: 0
+  forceDirection: {x: 0, y: 0, z: 0}
+--- !u!65 &3503212248474442361
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7016440577121544130}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 15, y: 15, z: 15}
+  m_Center: {x: 0, y: 7.5, z: 0}
+--- !u!114 &7562240400751713637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7016440577121544130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82f435ddf5233f64789ad4856026ffaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AbsorbRange
+  selfTempest: {fileID: 6915800434355358500}
+  tempestList: []
+  rubbleList: []
+  col: {fileID: 3503212248474442361}
 --- !u!1 &7519725718524910022
 GameObject:
   m_ObjectHideFlags: 0

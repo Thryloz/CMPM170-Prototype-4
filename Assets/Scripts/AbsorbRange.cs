@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections.Generic;
-using System.Transactions;
 
 public class AbsorbRange : MonoBehaviour
 {
@@ -27,6 +26,11 @@ public class AbsorbRange : MonoBehaviour
         foreach (TempestMain tempest in new List<TempestMain>(tempestList))
         {
             tempest.ModifyStability(-selfTempest.stabilityDamageRate * Time.deltaTime);
+            if (tempest == null)
+            {
+                tempestList.Remove(tempest);
+                return;
+            }
             if (IsAbsorbable(tempest)) 
             {
                 selfTempest.ChangeSize(tempest.size);
