@@ -6,7 +6,7 @@ public class AbsorbRange : MonoBehaviour
     [SerializeField] private TempestMain selfTempest;
     [SerializeField] private List<TempestMain> tempestList = new List<TempestMain>();
     [SerializeField] private List<DebrisStateManager> rubbleList = new List<DebrisStateManager>();
-    [SerializeField] private List<GameObject> stabilityList = new List<GameObject>();
+    [SerializeField] private List<TurnToRubble> stabilityList = new List<TurnToRubble>();
 
     [SerializeField] private BoxCollider col;
 
@@ -38,6 +38,11 @@ public class AbsorbRange : MonoBehaviour
                 tempestList.Remove(tempest);
                 tempest.GetAbsorbed();
             }
+        }
+
+        foreach (TurnToRubble rubbleable in new List<TurnToRubble>(stabilityList))
+        {
+            rubbleable.ModifyStability(-selfTempest.stabilityDamageRate * 1.5f * Time.deltaTime);
         }
 
 
@@ -76,7 +81,7 @@ public class AbsorbRange : MonoBehaviour
         }
         else if (other.CompareTag("TurnToRubble"))
         {
-            stabilityList.Add(other.gameObject);
+            stabilityList.Add(other.gameObject.GetComponent<TurnToRubble>());
         }
     }
 

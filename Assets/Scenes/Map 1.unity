@@ -603,6 +603,7 @@ GameObject:
   m_Component:
   - component: {fileID: 356410832}
   - component: {fileID: 356410831}
+  - component: {fileID: 356410833}
   m_Layer: 0
   m_Name: RubbleSpawner
   m_TagString: Untagged
@@ -624,7 +625,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Spawner
   objectToSpawn: {fileID: 144920600073502044, guid: 2aeb74124d4375543bb82806bb5e099c, type: 3}
   range: 100
-  amount: 10
+  initialAmount: 50
+  y_pos: 5
+  spawnOverTime: 1
+  timeInterval: 5
 --- !u!4 &356410832
 Transform:
   m_ObjectHideFlags: 0
@@ -640,6 +644,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &356410833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356410830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f3752141293418469e55c2985c09656, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Spawner
+  objectToSpawn: {fileID: 6117071349010126079, guid: d250af4848f51154f9a2bf6a85b60ac2, type: 3}
+  range: 352.7
+  initialAmount: 2000
+  y_pos: 0
+  spawnOverTime: 1
+  timeInterval: 5
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1258,8 +1280,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Spawner
   objectToSpawn: {fileID: 7016440577121544130, guid: 4f5da5fcfc06a6b40bfeddb9d669d166, type: 3}
-  range: 231
-  amount: 15
+  range: 369.4
+  initialAmount: 20
+  y_pos: 0
+  spawnOverTime: 1
+  timeInterval: 10
 --- !u!4 &1824757422
 Transform:
   m_ObjectHideFlags: 0

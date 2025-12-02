@@ -15,9 +15,9 @@ public class TurnToRubble : MonoBehaviour, IStability
     // Update is called once per frame
     void Update()
     {
-        if (Stability >= 0)
+        if (Stability <= 50)
         {
-            Instantiate(rubble, transform.position, Quaternion.identity);
+            Instantiate(rubble, new Vector3(transform.position.x, transform.position.y + 2f, transform.position.z), Quaternion.identity);
             Destroy(gameObject);
         }
     }
