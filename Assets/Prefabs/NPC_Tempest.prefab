@@ -15007,6 +15007,7 @@ MonoBehaviour:
   acceleration: 2
   VFXRoot: {fileID: 700894331897692338}
   absorbRange: {fileID: 0}
+  isPlayer: 0
 --- !u!114 &-1862186037083873830
 MonoBehaviour:
   m_ObjectHideFlags: 0

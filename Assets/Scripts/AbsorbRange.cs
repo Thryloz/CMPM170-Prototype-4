@@ -92,19 +92,19 @@ public class AbsorbRange : MonoBehaviour
             // should be try get component to be safe but ehhh
             tempestList.Add(other.gameObject.GetComponent<TempestMain>());
         }
-        else if (other.CompareTag("Rubble"))
-        {
-            DebrisStateManager thisRubble = other.GetComponent<DebrisStateManager>();
-            if (thisRubble.currentState == thisRubble.projectileState)
-            {
-                selfTempest.ModifyStability(-thisRubble.stabilityDamage);
-                selfTempest.ChangeSize(-selfTempest.size * (thisRubble.sizePercentDamage / 100f));
-            }
-            rubbleList.Add(thisRubble);
-        }
         else if (other.CompareTag("TurnToRubble"))
         {
             stabilityList.Add(other.gameObject.GetComponent<TurnToRubble>());
+        }
+        else if (other.CompareTag("Rubble"))
+        {
+            DebrisStateManager thisRubble = other.GetComponent<DebrisStateManager>();
+            // if (thisRubble.currentState == thisRubble.projectileState)
+            // {
+            //     selfTempest.ModifyStability(-thisRubble.stabilityDamage);
+            //     selfTempest.ChangeSize(-selfTempest.size * (thisRubble.sizePercentDamage / 100f));
+            // }
+            rubbleList.Add(thisRubble);
         }
     }
 

@@ -12,11 +12,11 @@ public class DebrisProjectileState : DebrisBaseState
         if (debris.player.aimIndicator.angle>=-40 && debris.player.aimIndicator.angle<=40)
         {
             // orient this to face whereever the player is pointed at
-            //RaycastHit hit;
-            //if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, Mathf.Infinity))
-            //{
+            // RaycastHit hit;
+            // if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, Mathf.Infinity))
+            // {
             //    debris.transform.LookAt(hit.point);
-            //}
+            // }
             debris.transform.localRotation = Camera.main.transform.rotation;
         }
         // or send backward when [140-220]
@@ -40,7 +40,7 @@ public class DebrisProjectileState : DebrisBaseState
         }
     }
 
-    public override void OnCollisionEnter(DebrisStateManager debris, Collider other)
+    public override void OnTriggerEnter(DebrisStateManager debris, Collider other)
     {
         if (other.CompareTag("NPC_Tempest"))
         {

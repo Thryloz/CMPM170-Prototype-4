@@ -1,11 +1,11 @@
-using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour 
 {
     public static GameManager Instance;
 
-
+    public List<GameObject> enemies;
     public GameObject gameover;
 
     private void Awake()
@@ -23,7 +23,17 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        
+        if (enemies.Count == 0)
+        {
+            EndGame();
+            return;
+        }
+             
+        foreach (GameObject enemy in new List<GameObject>(enemies))
+        {
+            if (enemy == null)
+                enemies.Remove(enemy);
+        }
     }
 
     public void RestartGame()

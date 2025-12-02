@@ -18,8 +18,12 @@ public class Spawner : MonoBehaviour
     void Start()
     {
         for (int i = 0; i < initialAmount; i++)
-        {
-            Instantiate(objectToSpawn, transform.position + new Vector3(Random.Range(-range, range), y_pos, Random.Range(-range, range)), Quaternion.identity);
+        {   
+            GameObject obj = Instantiate(objectToSpawn, transform.position + new Vector3(Random.Range(-range, range), y_pos, Random.Range(-range, range)), Quaternion.identity);
+            if (obj.TryGetComponent<NPC_Tempest>(out NPC_Tempest npc))
+            {
+                GameManager.Instance.enemies.Add(obj);
+            }
         }
     }
 

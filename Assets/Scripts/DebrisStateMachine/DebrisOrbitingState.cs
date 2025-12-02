@@ -18,6 +18,9 @@ public class DebrisOrbitingState : DebrisBaseState
     
     public override void UpdateState(DebrisStateManager debris)
     {
+        if (target == null)
+            return;
+
         if (!debris.player.isSucking)
         {
             debris.SwitchState(debris.projectileState);

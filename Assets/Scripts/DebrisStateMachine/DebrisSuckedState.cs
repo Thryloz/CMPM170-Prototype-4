@@ -16,6 +16,8 @@ public class DebrisSuckedState : DebrisBaseState
     
     public override void UpdateState(DebrisStateManager debris)
     {
+        if (target == null)
+            return;
         // look at OrbitTarget
         Vector3 dir = (target.position - debris.transform.position).normalized;
         if (dir != Vector3.zero)

@@ -1,4 +1,5 @@
 using System;
+using UnityEditor.UI;
 using UnityEngine;
 
 public class DebrisStateManager : MonoBehaviour
@@ -20,9 +21,13 @@ public class DebrisStateManager : MonoBehaviour
     [Header("Debug")]
     public string state;
 
-    void Start()
+    void Awake()
     {
         currentState = idleState;
+    }
+
+    void Start()
+    {
         player = GameObject.FindWithTag("Player").GetComponent<TempestController>();
 
         transform.localScale = Vector3.one * UnityEngine.Random.Range(minSize, maxSize);
@@ -32,6 +37,11 @@ public class DebrisStateManager : MonoBehaviour
     void Update()
     {
         currentState.UpdateState(this);
+    }
+
+    void OnTriggerEnter(Collider collider)
+    {
+        currentState.OnTriggerEnter(this, collider);
     }
 
     public void SwitchState(DebrisBaseState newState)

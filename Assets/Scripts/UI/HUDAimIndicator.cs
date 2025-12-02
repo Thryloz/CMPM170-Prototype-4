@@ -32,6 +32,8 @@ public class HUDAimIndicator : MonoBehaviour
 
     void Update()
     {
+        if (_player == null)
+            return;
         // angle of orbiting debris relative to player
         Vector3 orbitingDirection = orbitTargetTransform.localPosition;
         float orbitingAngle = Mathf.Atan2(orbitingDirection.z, orbitingDirection.x) * Mathf.Rad2Deg;
