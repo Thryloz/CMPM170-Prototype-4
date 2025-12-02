@@ -5,8 +5,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    public TempestController player;
-    public HUDAimIndicator aimIndicator;
+
+    public GameObject gameover;
 
     private void Awake()
     {
@@ -18,7 +18,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindWithTag("Player").GetComponent<TempestController>();
+        RestartGame();
+
     }
 
     void Update()
@@ -26,8 +27,16 @@ public class GameManager : MonoBehaviour
         
     }
 
+    public void RestartGame()
+    {
+        gameover.SetActive(false);
+        Time.timeScale = 1.0f;
+    }
+
     public void EndGame()
     {
-
+        gameover.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Time.timeScale = 0f; 
     }
 }

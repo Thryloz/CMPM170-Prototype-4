@@ -9,7 +9,7 @@ public class DebrisProjectileState : DebrisBaseState
         debris.player.projectile = null;
         
         // send forward when angle = [-40,40]
-        if (debris.aimIndicator.angle>=-40 && debris.aimIndicator.angle<=40)
+        if (debris.player.aimIndicator.angle>=-40 && debris.player.aimIndicator.angle<=40)
         {
             // orient this to face whereever the player is pointed at
             //RaycastHit hit;
@@ -20,7 +20,7 @@ public class DebrisProjectileState : DebrisBaseState
             debris.transform.localRotation = Camera.main.transform.rotation;
         }
         // or send backward when [140-220]
-        else if (debris.aimIndicator.angle>=140 && debris.aimIndicator.angle<=220)
+        else if (debris.player.aimIndicator.angle>=140 && debris.player.aimIndicator.angle<=220)
         {
             debris.transform.rotation = Quaternion.Euler(0,180,0);
         }

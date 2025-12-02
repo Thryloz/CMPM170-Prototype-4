@@ -10,6 +10,7 @@ public class TempestController : MonoBehaviour
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private GameObject crosshair;
     [SerializeField] private GameObject indicator;
+    public HUDAimIndicator aimIndicator;
 
 
     [Header("Suck & Throw Fields")]
@@ -32,7 +33,6 @@ public class TempestController : MonoBehaviour
     private Vector3 right = Vector3.zero;
     private Vector3 horizontalVelocity = Vector3.zero;
 
-    private float minZoomDistance;
     private void Awake()
     {
         controls = new PlayerControls();

@@ -25,9 +25,8 @@ public class HUDAimIndicator : MonoBehaviour
 
     void Start()
     {
-        GameManager.Instance.aimIndicator = this;
-        orbitTargetTransform = GameManager.Instance.player.transform.Find("OrbitTarget");
-        _player = GameManager.Instance.player.GetComponent<TempestController>();
+        orbitTargetTransform = GameObject.Find("OrbitTarget").transform;
+        _player = GameObject.FindWithTag("Player").GetComponent<TempestController>();
         selfTransform = GetComponent<RectTransform>();
     }
 

@@ -16,7 +16,6 @@ public class DebrisStateManager : MonoBehaviour
     public float minSize = 2f;
     public float maxSize = 5f;
 
-    [NonSerialized] public HUDAimIndicator aimIndicator;
 
     [Header("Debug")]
     public string state;
@@ -24,8 +23,7 @@ public class DebrisStateManager : MonoBehaviour
     void Start()
     {
         currentState = idleState;
-        player = GameManager.Instance.player;
-        aimIndicator = GameManager.Instance.aimIndicator;
+        player = GameObject.FindWithTag("Player").GetComponent<TempestController>();
 
         transform.localScale = Vector3.one * UnityEngine.Random.Range(minSize, maxSize);
         transform.rotation = UnityEngine.Random.rotation;
