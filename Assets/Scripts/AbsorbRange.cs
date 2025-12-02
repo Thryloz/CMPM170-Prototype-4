@@ -18,7 +18,7 @@ public class AbsorbRange : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckAbsorbList();
+        CheckAbsorbList(); // oh boy
         col.size = Vector3.one * (selfTempest.size * 4f);
     }
 
@@ -52,7 +52,7 @@ public class AbsorbRange : MonoBehaviour
 
 
 
-        if (GameManager.Instance.player.isSucking)
+        if (GameManager.Instance.player.isSucking && CompareTag("Player"))
         {
             foreach (DebrisStateManager rubble in rubbleList)
             {
