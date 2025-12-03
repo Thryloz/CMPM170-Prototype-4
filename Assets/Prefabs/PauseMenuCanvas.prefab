@@ -115,10 +115,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 184569e1ca6c8ab4cad9af8b79ecc895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GamePause
-  pauseMenuPanel: {fileID: 3734253754755682929}
-  homeButton: {fileID: 406219482032388066}
-  playButton: {fileID: 8207003090185135713}
-  mainMenuSceneName: MainMenu
 --- !u!1 &958339390464883640
 GameObject:
   m_ObjectHideFlags: 0
@@ -418,8 +414,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7210485074327928141}
   - {fileID: 2874634450580577361}
+  - {fileID: 7210485074327928141}
   m_Father: {fileID: 3868865612012984467}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
