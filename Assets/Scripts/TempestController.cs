@@ -52,6 +52,8 @@ public class TempestController : MonoBehaviour
         move = controls.Player.Move;
         suck = controls.Player.Suck;
 
+        controls.Player.Pause.performed += OnPauseGame;
+
         controls.Player.Enable();
     }
 
@@ -61,10 +63,16 @@ public class TempestController : MonoBehaviour
         controls.Player.Disable();
     }
 
+    public void OnPauseGame(InputAction.CallbackContext context)
+    {
+        GameManager.Instance.PauseGame();
+    }
+
     private void Start()
     {
 
     }
+
 
     private void Update()
     {

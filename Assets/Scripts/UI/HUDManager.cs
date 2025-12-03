@@ -15,12 +15,16 @@ public class HUDManager : MonoBehaviour
         TempestController.OnReleaseRubble += HideRubbleAiming;
 
         GameManager.OnGameOver += ShowGameOverMenu;
+        GameManager.OnPauseGame += HandlePauseMenu;
     }
 
     private void OnDisable()
     {
         TempestController.OnObtainRubble -= ShowRubbleAiming;
         TempestController.OnReleaseRubble -= HideRubbleAiming;
+
+        GameManager.OnGameOver -= ShowGameOverMenu;
+        GameManager.OnPauseGame -= HandlePauseMenu;
     }
 
     private void Awake()
@@ -51,5 +55,10 @@ public class HUDManager : MonoBehaviour
     private void ShowGameOverMenu()
     {
         gameOverMenu.SetActive(true);
+    }
+
+    private void HandlePauseMenu(bool isPaused)
+    {
+        pauseMenu.SetActive(!isPaused);
     }
 }

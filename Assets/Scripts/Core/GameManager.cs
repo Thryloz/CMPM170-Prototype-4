@@ -8,7 +8,10 @@ public class GameManager : MonoBehaviour
 
     public List<GameObject> enemies;
 
+    public static event Action<bool> OnPauseGame;
     public static event Action OnGameOver;
+
+    private bool isPaused = false;
 
     private void Awake()
     {
@@ -46,5 +49,24 @@ public class GameManager : MonoBehaviour
         OnGameOver?.Invoke();
         Cursor.lockState = CursorLockMode.None;
         Time.timeScale = 0f; 
+    }
+
+    public void PauseGame()
+    {
+        if (!isPaused)
+        {
+            OnPauseGame.Invoke(isPaused);
+            Cursor.lockState = CursorLockMode.None;
+            Time.timeScale = 0f;
+            isPaused = true;
+        }
+        else
+        {
+            OnPauseGame.Invoke(isPaused);
+            Cursor.lockState = CursorLockMode.Locked;
+            Time.timeScale = 1f;
+            isPaused = false;
+        }
+
     }
 }

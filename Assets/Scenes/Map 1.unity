@@ -287,10 +287,22 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2518330752211549121, guid: 435c9fe6fdf803d4b8b21a2bb2653a5e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1295533819}
+    - target: {fileID: 2518330752211549121, guid: 435c9fe6fdf803d4b8b21a2bb2653a5e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResumeGame
+      objectReference: {fileID: 0}
     - target: {fileID: 3212511097852091758, guid: 435c9fe6fdf803d4b8b21a2bb2653a5e, type: 3}
       propertyPath: m_Texture
       value: 
       objectReference: {fileID: 2800000, guid: 46fde1039498df34aa0510f59234f0b8, type: 3}
+    - target: {fileID: 4473829676934219328, guid: 435c9fe6fdf803d4b8b21a2bb2653a5e, type: 3}
+      propertyPath: m_Name
+      value: MenuButton
+      objectReference: {fileID: 0}
     - target: {fileID: 4683835483971333006, guid: 435c9fe6fdf803d4b8b21a2bb2653a5e, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -370,6 +382,22 @@ PrefabInstance:
     - target: {fileID: 4683835483971333006, guid: 435c9fe6fdf803d4b8b21a2bb2653a5e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5600268362011543172, guid: 435c9fe6fdf803d4b8b21a2bb2653a5e, type: 3}
+      propertyPath: m_Name
+      value: ResumeButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156756007139850534, guid: 435c9fe6fdf803d4b8b21a2bb2653a5e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6247873521505299010, guid: 435c9fe6fdf803d4b8b21a2bb2653a5e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1295533819}
+    - target: {fileID: 6247873521505299010, guid: 435c9fe6fdf803d4b8b21a2bb2653a5e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GoToMainMenu
       objectReference: {fileID: 0}
     - target: {fileID: 6312543502793232078, guid: 435c9fe6fdf803d4b8b21a2bb2653a5e, type: 3}
       propertyPath: m_Name
@@ -1056,6 +1084,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1295533819 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8682091095684038265, guid: 435c9fe6fdf803d4b8b21a2bb2653a5e, type: 3}
+  m_PrefabInstance: {fileID: 249832950}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 184569e1ca6c8ab4cad9af8b79ecc895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GamePause
 --- !u!1 &1389467996
 GameObject:
   m_ObjectHideFlags: 0
