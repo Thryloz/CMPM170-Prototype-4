@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -32,6 +33,9 @@ public class TempestController : MonoBehaviour
     private Vector3 forward = Vector3.zero;
     private Vector3 right = Vector3.zero;
     private Vector3 horizontalVelocity = Vector3.zero;
+
+    public static event Action OnObtainRubble;
+    public static event Action OnReleaseRubble;
 
     private void Awake()
     {
@@ -80,13 +84,11 @@ public class TempestController : MonoBehaviour
         
         if (projectile != null)
         {
-            crosshair.SetActive(true);
-            indicator.SetActive(true);
+            OnObtainRubble?.Invoke();
         }
         else
         {
-            crosshair.SetActive(false);
-            indicator.SetActive(false);
+            OnReleaseRubble?.Invoke();
         }
     }
 
