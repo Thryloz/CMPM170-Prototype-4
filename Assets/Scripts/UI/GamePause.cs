@@ -13,7 +13,7 @@ public class GamePause : MonoBehaviour
     [Header("Settings")]
     [SerializeField] public string mainMenuSceneName = "MainMenuScene";
 
-    private bool isPaused = false;
+    //private bool isPaused = false;
 
     void Start()
     {
@@ -53,7 +53,6 @@ public class GamePause : MonoBehaviour
 
     public void PauseGame()
     {
-        isPaused = true;
 
         // Show pause menu
         if (pauseMenuPanel != null)
@@ -71,8 +70,6 @@ public class GamePause : MonoBehaviour
 
     public void ResumeGame()
     {
-        isPaused = false;
-
         // Hide pause menu
         if (pauseMenuPanel != null)
         {

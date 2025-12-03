@@ -7,9 +7,12 @@ public class DebrisProjectileState : DebrisBaseState
     public override void EnterState(DebrisStateManager debris)
     {
         debris.player.projectile = null;
-        
+        GameObject indicatorPivot = GameObject.Find("IndicatorPivot");
+        HUDAimIndicator aimIndicator = indicatorPivot.GetComponent<HUDAimIndicator>();
+
+
         // send forward when angle = [-40,40]
-        if (debris.player.aimIndicator.angle>=-40 && debris.player.aimIndicator.angle<=40)
+        if (aimIndicator.angle>=-40 && aimIndicator.angle<=40)
         {
             // orient this to face whereever the player is pointed at
             //RaycastHit hit;
@@ -22,7 +25,7 @@ public class DebrisProjectileState : DebrisBaseState
             // debris.transform.localRotation = Camera.main.transform.rotation;
         }
         // or send backward when [140-220]
-        else if (debris.player.aimIndicator.angle>=140 && debris.player.aimIndicator.angle<=220)
+        else if (aimIndicator.angle>=140 && aimIndicator.angle<=220)
         {
             debris.transform.rotation = Quaternion.Euler(0,180,0);
             debris.rb.AddForce(debris.transform.forward.normalized * 100f, ForceMode.VelocityChange);

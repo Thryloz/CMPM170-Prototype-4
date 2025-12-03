@@ -9,9 +9,7 @@ public class TempestController : MonoBehaviour
     [SerializeField] private ThirdPersonCameraController cameraController;
     [SerializeField] private TempestMain tempestMain;
     [SerializeField] private GameObject projectilePrefab;
-    [SerializeField] private GameObject crosshair;
-    [SerializeField] private GameObject indicator;
-    public HUDAimIndicator aimIndicator;
+
 
 
     [Header("Suck & Throw Fields")]
@@ -65,8 +63,7 @@ public class TempestController : MonoBehaviour
 
     private void Start()
     {
-        crosshair.SetActive(false);
-        indicator.SetActive(false);
+
     }
 
     private void Update()
