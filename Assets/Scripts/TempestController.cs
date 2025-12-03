@@ -65,7 +65,7 @@ public class TempestController : MonoBehaviour
 
     public void OnPauseGame(InputAction.CallbackContext context)
     {
-        GameManager.Instance.PauseGame();
+        GameManager.Instance.HandlePauseGame();
     }
 
     private void Start()

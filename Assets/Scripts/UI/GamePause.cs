@@ -5,7 +5,7 @@ public class GamePause : MonoBehaviour
 {
     public void ResumeGame()
     {
-        GameManager.Instance.PauseGame();
+        GameManager.Instance.HandlePauseGame();
     }
 
     public void GoToMainMenu()
