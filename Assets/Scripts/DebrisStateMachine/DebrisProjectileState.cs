@@ -6,6 +6,8 @@ public class DebrisProjectileState : DebrisBaseState
     private float timeBeforeIdle = 5f;
     public override void EnterState(DebrisStateManager debris)
     {
+        EventBus.Instance.DoAttack(true);
+
         debris.player.projectile = null;
         GameObject indicatorPivot = GameObject.Find("IndicatorPivot");
         HUDAimIndicator aimIndicator = indicatorPivot.GetComponent<HUDAimIndicator>();

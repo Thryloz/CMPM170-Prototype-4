@@ -9,15 +9,13 @@ public class AudioManager : MonoBehaviour
     [Header("Clips")]
     [SerializeField] private AudioClip bgmClip;
     [SerializeField] private AudioClip ambienceClip;
-    [SerializeField] private AudioClip treeBreakSFX;
-    [SerializeField] private AudioClip deathSFXClip;
+    [SerializeField] private AudioClip gameOverSFXClip;
     [SerializeField] private AudioClip throwSFXClip;
 
     [Header("Sources")]
     public AudioSource musicSource;
     public AudioSource ambienceSource; // done
-    public AudioSource treeBreakSource; // 
-    public AudioSource deathEffectSource;
+    public AudioSource gameOverEffectSource;
     public AudioSource throwEffectSource;
     
 
@@ -29,15 +27,18 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         EventBus.Instance.OnAttack += PlayThrowSFX;
-        PlayBGM();
 
+        musicSource.clip = bgmClip;
+        ambienceSource.clip = ambienceClip;
         throwEffectSource.clip = throwSFXClip;
+        gameOverEffectSource.clip = gameOverSFXClip;
+
+        PlayBGM();
     }
 
     private void PlayBGM()
     {
-        musicSource.clip = bgmClip;
-        ambienceSource.clip = ambienceClip;
+        
         ambienceSource.Play();
         musicSource.Play();
     }
@@ -47,9 +48,11 @@ public class AudioManager : MonoBehaviour
         throwEffectSource.Play();
     }
 
-    public void PauseBGM()
+    public void PlayGameOverSFX()
     {
         musicSource.Stop();
+        ambienceSource.Stop();
+        gameOverEffectSource.Play();
     }
 
     public void MusicVolume(float volume)
@@ -63,10 +66,6 @@ public class AudioManager : MonoBehaviour
     public void EffectsVolume(float volume)
     {
         throwEffectSource.volume = volume;
-    }
-
-    public IEnumerator DelayMusic()
-    {
-        yield return new WaitForSeconds(1);
+        gameOverEffectSource.volume = volume;
     }
 }

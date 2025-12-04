@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
         OnGameOver?.Invoke();
         Cursor.lockState = CursorLockMode.None;
         Time.timeScale = 0f;
-        AudioManager.Instance.PauseBGM();
+        AudioManager.Instance.PlayGameOverSFX(); // moved StopBGM into this func
     }
 
     public void HandlePauseGame()

@@ -9,11 +9,6 @@ public class DebrisOrbitingState : DebrisBaseState
     {
         proj = debris.player.projectile;
         target = debris.player.transform.Find("OrbitTarget");
-
-        //proj.transform.parent = target;
-        //proj.transform.localPosition = Vector3.zero;
-        //proj.transform.rotation = target.rotation;
-        //proj.transform.localScale = new Vector3(3,3,3);
     }
     
     public override void UpdateState(DebrisStateManager debris)
@@ -23,7 +18,6 @@ public class DebrisOrbitingState : DebrisBaseState
 
         if (!debris.player.isSucking)
         {
-            EventBus.Instance.DoAttack(true);
             debris.SwitchState(debris.projectileState);
         }
         proj.transform.SetPositionAndRotation(target.position, target.rotation);
