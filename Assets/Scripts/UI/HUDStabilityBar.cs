@@ -17,6 +17,6 @@ public class HUDStabilityBar : MonoBehaviour
 
     private void Update()
     {
-        healthBar.value = player.Stability;   
+        healthBar.value = TempestMain.Remap(player.Stability, 50, 100, 0, 100);   
     }
 }
