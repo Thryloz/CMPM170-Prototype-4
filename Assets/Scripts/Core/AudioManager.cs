@@ -26,6 +26,10 @@ public class AudioManager : MonoBehaviour
         musicSource.Play();
     }
 
+    public void PauseBGM()
+    {
+        musicSource.Stop();
+    }
     public void MusicVolume(float volume)
     {
         musicSource.volume = volume;

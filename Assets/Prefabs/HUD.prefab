@@ -2102,6 +2102,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1729295183495097255, guid: 2969b03610c00bf4abb5f26ac979d87d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1622095725866081857}
     - target: {fileID: 1942021279697386290, guid: 2969b03610c00bf4abb5f26ac979d87d, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -2110,6 +2114,10 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
+    - target: {fileID: 4107480728168863152, guid: 2969b03610c00bf4abb5f26ac979d87d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1622095725866081857}
     - target: {fileID: 6415621170761307634, guid: 2969b03610c00bf4abb5f26ac979d87d, type: 3}
       propertyPath: m_Color.b
       value: 0.59607846
@@ -2253,7 +2261,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 446977507435396713, guid: 2969b03610c00bf4abb5f26ac979d87d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1622095725866081857}
   m_SourcePrefab: {fileID: 100100000, guid: 2969b03610c00bf4abb5f26ac979d87d, type: 3}
 --- !u!224 &440425761358274637 stripped
 RectTransform:
@@ -2265,3 +2276,15 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 446977507435396713, guid: 2969b03610c00bf4abb5f26ac979d87d, type: 3}
   m_PrefabInstance: {fileID: 6959142040470398171}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1622095725866081857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7394960600066890418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fd89e920919db9459024b10e38d9343, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameOver
