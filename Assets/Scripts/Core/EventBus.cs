@@ -19,4 +19,10 @@ public class EventBus {
     {
         OnDamage?.Invoke(target, type);
     }
+
+    public Action<bool> OnAttack;
+    public void DoAttack(bool dummy)
+    {
+        OnAttack?.Invoke(dummy);
+    }
 }

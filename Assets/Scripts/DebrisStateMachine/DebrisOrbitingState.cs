@@ -23,6 +23,7 @@ public class DebrisOrbitingState : DebrisBaseState
 
         if (!debris.player.isSucking)
         {
+            EventBus.Instance.DoAttack(true);
             debris.SwitchState(debris.projectileState);
         }
         proj.transform.SetPositionAndRotation(target.position, target.rotation);
