@@ -1,3 +1,5 @@
+using System.Collections;
+using NUnit.Framework.Constraints;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
@@ -6,9 +8,18 @@ public class AudioManager : MonoBehaviour
 
     [Header("Clips")]
     [SerializeField] private AudioClip bgmClip;
+    [SerializeField] private AudioClip ambienceClip;
+    [SerializeField] private AudioClip treeBreakSFX;
+    [SerializeField] private AudioClip deathSFXClip;
+    [SerializeField] private AudioClip throwSFXClip;
 
     [Header("Sources")]
-    [SerializeField] private AudioSource musicSource;
+    public AudioSource musicSource;
+    public AudioSource ambienceSource; // done
+    public AudioSource treeBreakSource; // 
+    public AudioSource deathEffectSource;
+    public AudioSource throwEffectSource;
+    
 
     private void Awake()
     {
@@ -23,6 +34,10 @@ public class AudioManager : MonoBehaviour
     private void PlayBGM()
     {
         musicSource.clip = bgmClip;
+        ambienceSource.clip = ambienceClip;
+        throwEffectSource.clip = throwSFXClip;
+
+        ambienceSource.Play();
         musicSource.Play();
     }
 
@@ -30,8 +45,22 @@ public class AudioManager : MonoBehaviour
     {
         musicSource.Stop();
     }
+
     public void MusicVolume(float volume)
     {
         musicSource.volume = volume;
+    }
+    public void AmbientVolume(float volume)
+    {
+        ambienceSource.volume = volume;
+    }
+    public void EffectsVolume(float volume)
+    {
+        throwEffectSource.volume = volume;
+    }
+
+    public IEnumerator DelayMusic()
+    {
+        yield return new WaitForSeconds(1);
     }
 }

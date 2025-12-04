@@ -153,7 +153,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4f04cb9adb507e4c875a85b96aa2514, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DebrisStateManager
-  stabilityDamage: 20
-  sizeDamage: 10
+  stabilityDamage: 10
+  sizePercentDamage: 10
   minSize: 2
   maxSize: 5
+  rb: {fileID: -7183986122566450935}
+  state: 

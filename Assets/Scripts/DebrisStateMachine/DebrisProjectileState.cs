@@ -57,6 +57,7 @@ public class DebrisProjectileState : DebrisBaseState
             tempest.ModifyStability(-debris.stabilityDamage);
             tempest.ChangeSize(-tempest.size * (debris.sizePercentDamage / 100f));
             EventBus.Instance.DoDamage(other.gameObject, EventBus.DamageType.PROJECTILE);
+            debris.DestroySelf();
         }
     }
 }

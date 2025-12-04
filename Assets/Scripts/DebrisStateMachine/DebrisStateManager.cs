@@ -11,8 +11,8 @@ public class DebrisStateManager : MonoBehaviour
 
 
     [NonSerialized] public TempestController player;
-    public float stabilityDamage = 20;
-    public float sizePercentDamage = 20; // in percentage
+    public float stabilityDamage = 10;
+    public float sizePercentDamage = 10; // in percentage
     public float minSize = 2f;
     public float maxSize = 5f;
 
