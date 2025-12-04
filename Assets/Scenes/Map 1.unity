@@ -341,6 +341,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1299071701268025862, guid: 435c9fe6fdf803d4b8b21a2bb2653a5e, type: 3}
+      propertyPath: m_Color.a
+      value: 0.88235295
+      objectReference: {fileID: 0}
     - target: {fileID: 1477825923275990752, guid: 435c9fe6fdf803d4b8b21a2bb2653a5e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -348,6 +352,10 @@ PrefabInstance:
     - target: {fileID: 1477825923275990752, guid: 435c9fe6fdf803d4b8b21a2bb2653a5e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3965138352936853741, guid: 435c9fe6fdf803d4b8b21a2bb2653a5e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -200
       objectReference: {fileID: 0}
     - target: {fileID: 4473829676934219328, guid: 435c9fe6fdf803d4b8b21a2bb2653a5e, type: 3}
       propertyPath: m_Name
@@ -433,6 +441,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5028943294315056528, guid: 435c9fe6fdf803d4b8b21a2bb2653a5e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5028943294315056528, guid: 435c9fe6fdf803d4b8b21a2bb2653a5e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5600268362011543172, guid: 435c9fe6fdf803d4b8b21a2bb2653a5e, type: 3}
       propertyPath: m_Name
       value: ResumeButton
@@ -447,11 +463,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6156756007139850534, guid: 435c9fe6fdf803d4b8b21a2bb2653a5e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6312543502793232078, guid: 435c9fe6fdf803d4b8b21a2bb2653a5e, type: 3}
       propertyPath: m_Name
       value: HUD
+      objectReference: {fileID: 0}
+    - target: {fileID: 6837551545486844362, guid: 435c9fe6fdf803d4b8b21a2bb2653a5e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6973108976508981201, guid: 435c9fe6fdf803d4b8b21a2bb2653a5e, type: 3}
       propertyPath: m_Name
@@ -463,6 +483,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7394960600066890418, guid: 435c9fe6fdf803d4b8b21a2bb2653a5e, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8427089667478962673, guid: 435c9fe6fdf803d4b8b21a2bb2653a5e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 8694598801151956271, guid: 435c9fe6fdf803d4b8b21a2bb2653a5e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8694598801151956271, guid: 435c9fe6fdf803d4b8b21a2bb2653a5e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8694598801151956271, guid: 435c9fe6fdf803d4b8b21a2bb2653a5e, type: 3}
+      propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8818229215018426345, guid: 435c9fe6fdf803d4b8b21a2bb2653a5e, type: 3}
@@ -1199,7 +1235,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.05
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1329,7 +1365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
   bgmClip: {fileID: 8300000, guid: 6a37d48057895d344a685107d85d4905, type: 3}
-  musicSource: {fileID: 0}
+  musicSource: {fileID: 953156540}
 --- !u!1 &1389467996
 GameObject:
   m_ObjectHideFlags: 0

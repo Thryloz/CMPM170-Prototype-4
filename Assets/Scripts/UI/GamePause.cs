@@ -3,6 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class GamePause : MonoBehaviour
 {
+    [SerializeField] private HUDManager hudManager;
+
     public void ResumeGame()
     {
         GameManager.Instance.HandlePauseGame();
@@ -11,6 +13,11 @@ public class GamePause : MonoBehaviour
     public void GoToMainMenu()
     {
         SceneManager.LoadScene("MainMenuScene");
+    }
+
+    public void GoToSettings()
+    {
+        hudManager.ShowSettingsMenu();
     }
 
     void OnDestroy()

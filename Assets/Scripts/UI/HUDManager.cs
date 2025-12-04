@@ -8,6 +8,7 @@ public class HUDManager : MonoBehaviour
     [Header("Menus")]
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject gameOverMenu;
+    [SerializeField] private GameObject settingsMenu;
 
     private void OnEnable()
     {
@@ -36,8 +37,10 @@ public class HUDManager : MonoBehaviour
     {
         crossHair.SetActive(false);
         indicatorPivot.SetActive(false);
+
         pauseMenu.SetActive(false);
         gameOverMenu.SetActive(false);
+        settingsMenu.SetActive(false);
     }
 
     private void ShowRubbleAiming()
@@ -60,5 +63,17 @@ public class HUDManager : MonoBehaviour
     private void HandlePauseMenu(bool isPaused)
     {
         pauseMenu.SetActive(!isPaused);
+    }
+
+    public void ShowSettingsMenu()
+    {
+        settingsMenu.SetActive(true);
+        pauseMenu.SetActive(false);
+    }
+
+    public void SettingsToPause()
+    {
+        pauseMenu.SetActive(true);
+        settingsMenu.SetActive(false);
     }
 }
