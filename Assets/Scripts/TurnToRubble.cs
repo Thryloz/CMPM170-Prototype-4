@@ -10,6 +10,19 @@ public class TurnToRubble : MonoBehaviour, IStability
     void Start()
     {
         transform.localScale = Vector3.one * Random.Range(1f, 3f);
+
+        if (transform.childCount > 0)
+        {
+            Transform[] allChildTransforms = GetComponentsInChildren<Transform>();
+
+            foreach (Transform child in allChildTransforms)
+            {
+                Vector3 randomRotation = new Vector3(0f, Random.Range(0, 360f), 0f);
+                child.localEulerAngles = randomRotation;
+            }
+        }
+
+        transform.localEulerAngles = new Vector3(0f, Random.Range(0, 360f), 0f);
     }
 
     // Update is called once per frame
