@@ -1366,7 +1366,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 926.3, y: 462.6}
+  m_SizeDelta: {x: 1047.4, y: 462.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1108925206
 MonoBehaviour:
@@ -1391,20 +1391,23 @@ MonoBehaviour:
   m_text: 'Jim Lee - General Programming (too many to list), Tempest VFX
 
     Kevin
-    Tan - Throwing Mechanic, UI, and NPC Tempest Movement
+    Tan - Throwing Mechanic, UI, and NPC Tempest Movement, Audio
 
-    Jocelyn Yu - UI and
-    Music (in house bgm whoaaaa)
+    Jocelyn Yu
+    - UI and Music (in house bgm whoaaaa)
 
-    Armaan Ahmen - Stability Mechanic and Map Design
+    Armaan Ahmen - Stability Mechanic
+    and Map Design, Audio
 
-    Polytope
-    Studio - Trees and Environment Textures
+    Polytope Studio - Trees and Environment Textures
 
-    SkySeries - Skybox
+    SkySeries
+    - Skybox
 
-    OccaSoftware
-    - Crosshair'
+    OccaSoftware - Crosshair
+
+    SFX from florianreichelt, klankbeeld,
+    and liecio on freesound.org'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
   m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
@@ -1431,7 +1434,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 37.35
+  m_fontSize: 36.6
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
