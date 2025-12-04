@@ -375,6 +375,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ResumeButton
       objectReference: {fileID: 0}
+    - target: {fileID: 5970919611905419880, guid: 435c9fe6fdf803d4b8b21a2bb2653a5e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -230
+      objectReference: {fileID: 0}
+    - target: {fileID: 6065921313198627218, guid: 435c9fe6fdf803d4b8b21a2bb2653a5e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -97.899994
+      objectReference: {fileID: 0}
     - target: {fileID: 6156756007139850534, guid: 435c9fe6fdf803d4b8b21a2bb2653a5e, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -386,6 +394,10 @@ PrefabInstance:
     - target: {fileID: 6973108976508981201, guid: 435c9fe6fdf803d4b8b21a2bb2653a5e, type: 3}
       propertyPath: m_Name
       value: Background
+      objectReference: {fileID: 0}
+    - target: {fileID: 7054596268849548839, guid: 435c9fe6fdf803d4b8b21a2bb2653a5e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 7394960600066890418, guid: 435c9fe6fdf803d4b8b21a2bb2653a5e, type: 3}
       propertyPath: m_IsActive
