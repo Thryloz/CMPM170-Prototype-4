@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Rubble
   - NPC_Tempest
+  - TurnToRubble
+  - PhysicsRubble
   layers:
   - Default
   - TransparentFX

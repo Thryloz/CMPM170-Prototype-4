@@ -14,7 +14,10 @@ public class HUDHitmarker : MonoBehaviour
     {
         if (target.CompareTag("NPC_Tempest") && type == EventBus.DamageType.PROJECTILE)
         {
-            StartCoroutine(ShowHitmarker());
+            if (hitmarker != null)
+            {
+                StartCoroutine(ShowHitmarker());
+            }
         }
     }
 

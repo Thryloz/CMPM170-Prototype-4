@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
-public class RubbleSucker : MonoBehaviour
+public class PhysicsRubbleSucker : MonoBehaviour
 {
     public List<Rigidbody> nearbyRubble = new List<Rigidbody>();
     public float pullForce;
@@ -30,7 +30,7 @@ public class RubbleSucker : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Rubble"))
+        if (other.gameObject.CompareTag("PhysicsRubble"))
         {
             nearbyRubble.Add(other.gameObject.GetComponent<Rigidbody>());
         }
@@ -38,7 +38,7 @@ public class RubbleSucker : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Rubble"))
+        if (other.gameObject.CompareTag("PhysicsRubble"))
         {
             nearbyRubble.Remove(other.gameObject.GetComponent<Rigidbody>());
         }

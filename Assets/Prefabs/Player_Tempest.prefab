@@ -9992,6 +9992,7 @@ MonoBehaviour:
   selfTempest: {fileID: 6915800434355358500}
   tempestList: []
   rubbleList: []
+  stabilityList: []
   col: {fileID: 8390572449965784622}
 --- !u!1 &7016440577121544130
 GameObject:
@@ -10007,6 +10008,7 @@ GameObject:
   - component: {fileID: 8964151998207303255}
   - component: {fileID: 3503212248474442361}
   - component: {fileID: 7562240400751713637}
+  - component: {fileID: 1153141925823734327}
   m_Layer: 6
   m_Name: Player_Tempest
   m_TagString: Player
@@ -10094,6 +10096,7 @@ MonoBehaviour:
   acceleration: 2
   VFXRoot: {fileID: 1023605435252568025}
   absorbRange: {fileID: 0}
+  isPlayer: 0
 --- !u!114 &8964151998207303255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10152,7 +10155,23 @@ MonoBehaviour:
   selfTempest: {fileID: 6915800434355358500}
   tempestList: []
   rubbleList: []
+  stabilityList: []
   col: {fileID: 3503212248474442361}
+--- !u!114 &1153141925823734327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7016440577121544130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 446492639874d6c46b23a568829ad5d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PhysicsRubbleSucker
+  nearbyRubble: []
+  pullForce: 100
+  maxVelocity: 5
 --- !u!1 &7519725718524910022
 GameObject:
   m_ObjectHideFlags: 0
