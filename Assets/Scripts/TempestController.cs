@@ -78,6 +78,15 @@ public class TempestController : MonoBehaviour
     {
         isSucking = suck.ReadValue<float>() != 0;
 
+        if (isSucking)
+        {
+            if (projectile != null)
+            {
+                if (!AudioManager.Instance.rockClashSFXSource.isPlaying)
+                AudioManager.Instance.PlayRockClashSFX();
+            }
+        }
+
         if (tempestMain.size <= tempestMain.level3Threshold)
         {
             cameraController.minDistance = TempestMain.Remap(tempestMain.size, tempestMain.level1Threshold, tempestMain.level3Threshold, 15f, 50f);

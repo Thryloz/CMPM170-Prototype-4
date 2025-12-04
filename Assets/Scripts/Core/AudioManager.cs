@@ -1,5 +1,3 @@
-using System.Collections;
-using NUnit.Framework.Constraints;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
@@ -11,12 +9,14 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip ambienceClip;
     [SerializeField] private AudioClip gameOverSFXClip;
     [SerializeField] private AudioClip throwSFXClip;
+    [SerializeField] private AudioClip rockClashSFXCLip;
 
     [Header("Sources")]
     public AudioSource musicSource;
     public AudioSource ambienceSource; // done
     public AudioSource gameOverEffectSource;
     public AudioSource throwEffectSource;
+    public AudioSource rockClashSFXSource;
     
 
     private void Awake()
@@ -28,17 +28,18 @@ public class AudioManager : MonoBehaviour
     {
         EventBus.Instance.OnAttack += PlayThrowSFX;
 
+
         musicSource.clip = bgmClip;
         ambienceSource.clip = ambienceClip;
         throwEffectSource.clip = throwSFXClip;
         gameOverEffectSource.clip = gameOverSFXClip;
-
+        rockClashSFXSource.clip = rockClashSFXCLip;
+        
         PlayBGM();
     }
 
     private void PlayBGM()
     {
-        
         ambienceSource.Play();
         musicSource.Play();
     }
@@ -47,11 +48,17 @@ public class AudioManager : MonoBehaviour
     {
         throwEffectSource.Play();
     }
+    public void PlayRockClashSFX()
+    {
+        rockClashSFXSource.Play();
+    }
 
     public void PlayGameOverSFX()
     {
         musicSource.Stop();
         ambienceSource.Stop();
+        throwEffectSource.Stop();
+        rockClashSFXSource.Stop();
         gameOverEffectSource.Play();
     }
 
@@ -67,5 +74,6 @@ public class AudioManager : MonoBehaviour
     {
         throwEffectSource.volume = volume;
         gameOverEffectSource.volume = volume;
+        rockClashSFXSource.volume = volume;
     }
 }
