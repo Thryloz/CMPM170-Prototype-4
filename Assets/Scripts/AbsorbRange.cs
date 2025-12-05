@@ -99,11 +99,6 @@ public class AbsorbRange : MonoBehaviour
         else if (other.CompareTag("Rubble"))
         {
             DebrisStateManager thisRubble = other.GetComponent<DebrisStateManager>();
-            // if (thisRubble.currentState == thisRubble.projectileState)
-            // {
-            //     selfTempest.ModifyStability(-thisRubble.stabilityDamage);
-            //     selfTempest.ChangeSize(-selfTempest.size * (thisRubble.sizePercentDamage / 100f));
-            // }
             rubbleList.Add(thisRubble);
         }
     }

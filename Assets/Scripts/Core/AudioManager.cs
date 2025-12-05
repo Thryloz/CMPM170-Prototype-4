@@ -26,9 +26,6 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        EventBus.Instance.OnAttack += PlayThrowSFX;
-
-
         musicSource.clip = bgmClip;
         ambienceSource.clip = ambienceClip;
         throwEffectSource.clip = throwSFXClip;
@@ -44,7 +41,7 @@ public class AudioManager : MonoBehaviour
         musicSource.Play();
     }
 
-    private void PlayThrowSFX(bool dummy)
+    public void PlayThrowSFX()
     {
         throwEffectSource.Play();
     }

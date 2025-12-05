@@ -8,6 +8,8 @@ public class DebrisProjectileState : DebrisBaseState
     {
         EventBus.Instance.DoAttack(true);
 
+        AudioManager.Instance.PlayThrowSFX();
+
         debris.player.projectile = null;
         GameObject indicatorPivot = GameObject.Find("IndicatorPivot");
         HUDAimIndicator aimIndicator = indicatorPivot.GetComponent<HUDAimIndicator>();
