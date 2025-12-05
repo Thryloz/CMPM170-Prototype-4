@@ -9813,7 +9813,7 @@ Transform:
   m_GameObject: {fileID: 1023605435252568025}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -9992,6 +9992,7 @@ MonoBehaviour:
   selfTempest: {fileID: 6915800434355358500}
   tempestList: []
   rubbleList: []
+  stabilityList: []
   col: {fileID: 8390572449965784622}
 --- !u!1 &7016440577121544130
 GameObject:
@@ -10094,6 +10095,7 @@ MonoBehaviour:
   acceleration: 2
   VFXRoot: {fileID: 1023605435252568025}
   absorbRange: {fileID: 0}
+  isPlayer: 0
 --- !u!114 &8964151998207303255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10152,6 +10154,7 @@ MonoBehaviour:
   selfTempest: {fileID: 6915800434355358500}
   tempestList: []
   rubbleList: []
+  stabilityList: []
   col: {fileID: 3503212248474442361}
 --- !u!1 &7519725718524910022
 GameObject:
